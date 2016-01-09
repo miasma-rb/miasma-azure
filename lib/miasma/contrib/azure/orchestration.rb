@@ -7,12 +7,24 @@ module Miasma
 
         include Contrib::AzureApiCore::ApiCommon
 
+        STATUS_MAP = Smash.new(
+          'Failed' => :create_failed,
+          'Canceled' => :create_failed,
+          'Succeeded' => :create_complete,
+          'Deleting' => :delete_in_progress,
+          'Deleted' => :delete_complete
+        )
+
         def orchestration_api_version
           '2015-01-01'
         end
 
         def orchestration_root_path
           "/subscriptions/#{azure_subscription_id}/resourcegroups/#{azure_resource_group}/providers/microsoft.resources/deployments"
+        end
+
+        def status_to_state(val)
+          STATUS_MAP.fetch(val, :create_in_progress)
         end
 
         # Fetch stacks or update provided stack data
@@ -25,18 +37,6 @@ module Miasma
           )
           stacks = result.fetch(:body, :value, []).map do |item|
             new_stack = Stack.new(self)
-            current_state = case item.get(:properties, :provisioningState)
-                            when 'Failed', 'Canceled'
-                              :create_failed
-                            when 'Succeeded'
-                              :create_complete
-                            when 'Deleting'
-                              :delete_in_progress
-                            when 'Deleted'
-                              :delete_complete
-                            else
-                              :create_in_progress
-                            end
             new_stack.load_data(
               :id => item[:id],
               :name => item[:name],
@@ -48,7 +48,7 @@ module Miasma
               :outputs => item.fetch(:outputs, {}).map{ |o_name, o_value|
                 Smash.new(:key => o_name, :value => o_value[:value])
               },
-              :state => current_state,
+              :state => status_to_state(item.get(:properties, :provisioningState)),
               :status => item.get(:properties, :provisioningState),
               :custom => item
             ).valid_state
@@ -183,28 +183,18 @@ module Miasma
         # @param stack [Models::Orchestration::Stack]
         # @return [Array<Models::Orchestration::Stack::Resource>]
         def resource_all(stack)
-          results = all_result_pages(nil, :body, 'DescribeStackResourcesResponse', 'DescribeStackResourcesResult', 'StackResources', 'member') do |options|
-            request(
-              :method => :post,
-              :path => '/',
-              :form => options.merge(
-                Smash.new(
-                  'Action' => 'DescribeStackResources',
-                  'StackName' => stack.id
-                )
-              )
-            )
-          end.map do |res|
+          stack.custom.fetch(:properties, :dependencies, []).map do |res|
+            evt = stack.events.all.detect{|ev| ev.resource_id == res[:id]}
             Stack::Resource.new(
               stack,
-              :id => res['PhysicalResourceId'],
-              :name => res['LogicalResourceId'],
-              :logical_id => res['LogicalResourceId'],
-              :type => res['ResourceType'],
-              :state => res['ResourceStatus'].downcase.to_sym,
-              :status => res['ResourceStatus'],
-              :status_reason => res['ResourceStatusReason'],
-              :updated => res['Timestamp']
+              :id => res[:id],
+              :type => res[:resourceType],
+              :name => res[:resourceName],
+              :logical_id => res[:resourceName],
+              :state => evt.resource_state,
+              :status => evt.resource_status,
+              :status_reason => evt.resource_status_reason,
+              :updated => evt.time
             ).valid_state
           end
         end
@@ -223,27 +213,19 @@ module Miasma
         # @param stack [Models::Orchestration::Stack]
         # @return [Array<Models::Orchestration::Stack::Event>]
         def event_all(stack, evt_id=nil)
-          results = all_result_pages(nil, :body, 'DescribeStackEventsResponse', 'DescribeStackEventsResult', 'StackEvents', 'member') do |options|
-            request(
-              :method => :post,
-              :path => '/',
-              :form => options.merge(
-                'Action' => 'DescribeStackEvents',
-                'StackName' => stack.id
-              )
-            )
-          end
-          events = results.map do |event|
+          result = request(
+            :path => [stack.name, 'operations'].join('/')
+          )
+          events = result.get(:body, :value).map do |event|
             Stack::Event.new(
               stack,
-              :id => event['EventId'],
-              :resource_id => event['PhysicalResourceId'],
-              :resource_name => event['LogicalResourceId'],
-              :resource_logical_id => event['LogicalResourceId'],
-              :resource_state => event['ResourceStatus'].downcase.to_sym,
-              :resource_status => event['ResourceStatus'],
-              :resource_status_reason => event['ResourceStatusReason'],
-              :time => Time.parse(event['Timestamp'])
+              :id => event[:operationId],
+              :resource_id => event.get(:properties, :targetResource, :id),
+              :resource_name => event.get(:properties, :targetResource, :resourceName),
+              :resource_state => status_to_state(event.get(:properties, :provisioningState)),
+              :resource_status => event.get(:properties, :provisioningState),
+              :resource_status_reason => event.get(:properties, :statusCode),
+              :time => Time.parse(event.get(:properties, :timestamp))
             ).valid_state
           end
           if(evt_id)
