@@ -287,9 +287,6 @@ module Miasma
             end
             az_connection = connection
           end
-          p http_method
-          p dest
-          p options
           az_connection.send(http_method, dest, options)
         end
 
