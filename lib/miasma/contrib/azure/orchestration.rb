@@ -1,3 +1,4 @@
+require 'securerandom'
 require 'miasma'
 
 module Miasma
@@ -19,8 +20,10 @@ module Miasma
           '2015-01-01'
         end
 
-        def orchestration_root_path
-          "/subscriptions/#{azure_subscription_id}/resourcegroups/#{azure_resource_group}/providers/microsoft.resources/deployments"
+        def generate_path(stack=nil)
+          path = "/subscriptions/#{azure_subscription_id}/resourcegroups"
+          path << "/#{stack.name}/providers/microsoft.resources/deployments/miasma-stack" if stack
+          path
         end
 
         def status_to_state(val)
@@ -32,14 +35,18 @@ module Miasma
         # @param stack [Models::Orchestration::Stack]
         # @return [Array<Models::Orchestration::Stack>]
         def load_stack_data(stack=nil)
-          result = request(
-            :method => :get
-          )
-          stacks = result.fetch(:body, :value, []).map do |item|
+          if(stack)
+            result = request(
+              :path => generate_path(stack)
+            )
+            item = result[:body]
             new_stack = Stack.new(self)
+            deployment_id = item[:id]
+            stack_id = deployment_id.sub(/\/providers\/microsoft.resources.+/i, '')
+            stack_name = File.basename(stack_id)
             new_stack.load_data(
-              :id => item[:id],
-              :name => item[:name],
+              :id => stack_id,
+              :name => stack_name,
               :parameters => Smash[
                 item.fetch(:parameters, {}).map do |p_name, p_value|
                   [p_name, p_value[:value]]
@@ -48,12 +55,25 @@ module Miasma
               :outputs => item.fetch(:outputs, {}).map{ |o_name, o_value|
                 Smash.new(:key => o_name, :value => o_value[:value])
               },
+              :template_url => item.get(:properties, :templateLink, :uri),
               :state => status_to_state(item.get(:properties, :provisioningState)),
               :status => item.get(:properties, :provisioningState),
               :custom => item
             ).valid_state
+          else
+            result = request(
+              :path => generate_path
+            )
+            result.fetch(:body, :value, []).map do |item|
+              new_stack = Stack.new(self)
+              new_stack.load_data(
+                :id => item[:id],
+                :name => item[:name],
+                :state => status_to_state(item.get(:properties, :provisioningState)),
+                :status => item.get(:properties, :provisioningState)
+              ).valid_state
+            end
           end
-          stack ? stacks.first : stacks
         end
 
         # Save the stack
@@ -61,21 +81,60 @@ module Miasma
         # @param stack [Models::Orchestration::Stack]
         # @return [Models::Orchestration::Stack]
         def stack_save(stack)
-          request(
-            :path => stack.name,
+          store_template!(stack)
+          unless(stack.persisted?)
+            request(
+              :path => [generate_path, stack.name].join('/'),
+              :method => :put,
+              :params => {
+                'api-version' => '2015-01-01'
+              },
+              :json => {
+                :location => azure_region
+              },
+              :expects => [200, 201]
+            )
+          end
+          result = request(
+            :path => generate_path(stack),
             :method => :put,
-            :expects => 201,
+            :expects => [200, 201],
             :json => {
               :properties => {
-                :template => stack.template,
+                :templateLink => {
+                  :uri => stack.template_url,
+                  :contentVersion => '1.0.0.0'
+                },
                 :parameters => stack.parameters,
                 :mode => 'Complete'
               }
             }
           )
+          deployment_id = result.get(:body, :id)
+          stack_id = deployment_id.sub(%r{/microsoft.resources.+}, '')
+          stack_name = File.basename(stack_id)
+          stack.id = stack_id
+          stack.name = stack_name
+          stack.valid_state
           stack
         end
 
+        def store_template!(stack)
+          storage = api_for(:storage)
+          bucket = storage.buckets.get(azure_root_orchestration_container)
+          unless(bucket)
+            bucket = storage.buckets.build
+            bucket.name = azure_root_orchestration_container
+            bucket.save
+          end
+          file = bucket.files.build
+          file.name = "#{stack.name}-#{SecureRandom.uuid}.json"
+          file.body = MultiJson.dump(stack.template)
+          file.save
+          stack.template_url = file.url
+          stack.template = nil
+          stack
+        end
 
         # Reload the stack data from the API
         #
@@ -85,7 +144,8 @@ module Miasma
           if(stack.persisted?)
             ustack = Stack.new(self)
             ustack.id = stack.id
-            load_stack_data(ustack)
+            ustack.name = stack.name
+            ustack = load_stack_data(ustack)
             if(ustack.data[:name])
               stack.load_data(ustack.attributes).valid_state
             else
@@ -106,7 +166,12 @@ module Miasma
             request(
               :method => :delete,
               :expects => 202,
-              :path => stack.name
+              :path => generate_path(stack)
+            )
+            request(
+              :path => [generate_path, stack.name].join('/'),
+              :method => :delete,
+              :expects => 202
             )
             true
           else
@@ -120,17 +185,15 @@ module Miasma
         # @return [Smash] stack template
         def stack_template_load(stack)
           if(stack.persisted?)
-            result = request(
-              :method => :post,
-              :path => '/',
-              :form => Smash.new(
-                'Action' => 'GetTemplate',
-                'StackName' => stack.id
-              )
-            )
-            MultiJson.load(
-              result.get(:body, 'GetTemplateResponse', 'GetTemplateResult', 'TemplateBody')
-            ).to_smash
+            if(stack.template_url)
+              storage = api_for(:storage)
+              location = URI.parse(stack.template_url)
+              bucket, file = location.path.sub('/', '').split('/', 2)
+              file = storage.buckets.get(bucket).files.get(file)
+              MultiJson.load(file.body.read).to_smash
+            else
+              raise "Stack template is not remotely stored. Unavailable! (stack: `#{stack.name}`)"
+            end
           else
             Smash.new
           end
@@ -214,7 +277,7 @@ module Miasma
         # @return [Array<Models::Orchestration::Stack::Event>]
         def event_all(stack, evt_id=nil)
           result = request(
-            :path => [stack.name, 'operations'].join('/')
+            :path => [generate_path(stack), 'operations'].join('/')
           )
           events = result.get(:body, :value).map do |event|
             Stack::Event.new(
