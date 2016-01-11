@@ -263,27 +263,25 @@ module Miasma
           options = options ? options.to_smash : Smash.new
           options[:headers] = Smash[connection.default_options.headers.to_a].merge(options.fetch(:headers, Smash.new))
           service = Bogo::Utility.snake(self.class.name.split('::')[-2,1].first)
-          root_path_method = "#{service}_root_path"
-          api_version_method = "#{service}_api_version"
           if(signer)
             options[:headers] ||= Smash.new
             options[:headers]['x-ms-date'] = AzureApiCore.time_rfc1123
-            if(self.respond_to?(api_version_method))
-              options[:headers]['x-ms-version'] = self.send(api_version_method)
+            if(self.respond_to?(:api_version))
+              options[:headers]['x-ms-version'] = self.send(:api_version)
             end
             options[:headers]['Authorization'] = signer.generate(
               http_method, URI.parse(dest).path, options
             )
             az_connection = connection.headers(options[:headers])
           else
-            if(self.respond_to?(api_version_method))
+            if(self.respond_to?(:api_version))
               options[:params] ||= Smash.new
-              options[:params]['api-version'] = self.send(api_version_method)
+              options[:params]['api-version'] = self.send(:api_version)
             end
-            if(self.respond_to?(root_path_method))
+            if(self.respond_to?(:root_path))
               p_dest = URI.parse(dest)
               dest = "#{p_dest.scheme}://#{p_dest.host}"
-              dest = File.join(dest, self.send(root_path_method), p_dest.path)
+              dest = File.join(dest, self.send(:root_path), p_dest.path)
             end
             az_connection = connection
           end
