@@ -41,6 +41,9 @@ module Miasma
           list.compact
         end
 
+
+        attr_reader :url_signer
+
         # Simple init override to force HOST and adjust region for
         # signatures if required
         def initialize(args)
@@ -51,6 +54,10 @@ module Miasma
             end
           end
           @signer = Contrib::AzureApiCore::SignatureAzure.new(
+            args[:azure_blob_secret_key],
+            args[:azure_blob_account_name]
+          )
+          @url_signer = Contrib::AzureApiCore::SignatureAzure::SasBlob.new(
             args[:azure_blob_secret_key],
             args[:azure_blob_account_name]
           )
@@ -262,6 +269,7 @@ module Miasma
           if(file.persisted?)
             name = file.name
             result = request(
+              :method => :head,
               :path => [file.bucket.name, file_path(file)].join('/')
             )
             file.data.clear && file.dirty.clear
@@ -283,7 +291,23 @@ module Miasma
         # @param timeout_secs [Integer] seconds available
         # @return [String] URL
         def file_url(file, timeout_secs)
-          raise NotImplementedError
+          object_path = [file.bucket.name, file_path(file)].join('/')
+          sign_args = Smash.new(
+            :params => Smash.new(
+              :sr => 'b',
+              :sv => storage_api_version,
+              :se => (Time.now.utc + timeout_secs).iso8601,
+              :sp => 'r'
+            )
+          )
+          signature = url_signer.generate(:get, object_path, sign_args)
+          uri = URI.parse([endpoint, object_path].join('/'))
+          uri.query = URI.encode_www_form(
+            sign_args[:params].merge(
+              :sig => signature
+            )
+          )
+          uri.to_s
         end
 
         # Fetch the contents of the file
