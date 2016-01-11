@@ -64,6 +64,10 @@ module Miasma
           super(args)
         end
 
+        def api_version
+          '2015-04-05'
+        end
+
         def endpoint
           "https://#{azure_blob_account_name}.blob.core.windows.net"
         end
@@ -135,10 +139,6 @@ module Miasma
             end
           end
           bucket
-        end
-
-        def storage_api_version
-          '2015-04-05'
         end
 
         # Return all buckets
@@ -295,7 +295,7 @@ module Miasma
           sign_args = Smash.new(
             :params => Smash.new(
               :sr => 'b',
-              :sv => storage_api_version,
+              :sv => api_version,
               :se => (Time.now.utc + timeout_secs).iso8601,
               :sp => 'r'
             )
