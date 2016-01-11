@@ -40,11 +40,10 @@ module Miasma
               :path => generate_path(stack)
             )
             item = result[:body]
-            new_stack = Stack.new(self)
             deployment_id = item[:id]
             stack_id = deployment_id.sub(/\/providers\/microsoft.resources.+/i, '')
             stack_name = File.basename(stack_id)
-            new_stack.load_data(
+            stack.data.merge!(
               :id => stack_id,
               :name => stack_name,
               :parameters => Smash[
@@ -59,7 +58,8 @@ module Miasma
               :state => status_to_state(item.get(:properties, :provisioningState)),
               :status => item.get(:properties, :provisioningState),
               :custom => item
-            ).valid_state
+            )
+            stack.valid_state
           else
             result = request(
               :path => generate_path
@@ -142,17 +142,7 @@ module Miasma
         # @return [Models::Orchestration::Stack]
         def stack_reload(stack)
           if(stack.persisted?)
-            ustack = Stack.new(self)
-            ustack.id = stack.id
-            ustack.name = stack.name
-            ustack = load_stack_data(ustack)
-            if(ustack.data[:name])
-              stack.load_data(ustack.attributes).valid_state
-            else
-              stack.status = 'Deleted'
-              stack.state = :delete_complete
-              stack.valid_state
-            end
+            load_stack_data(stack)
           end
           stack
         end
@@ -190,6 +180,7 @@ module Miasma
               location = URI.parse(stack.template_url)
               bucket, file = location.path.sub('/', '').split('/', 2)
               file = storage.buckets.get(bucket).files.get(file)
+              file.body.rewind
               MultiJson.load(file.body.read).to_smash
             else
               raise "Stack template is not remotely stored. Unavailable! (stack: `#{stack.name}`)"
@@ -246,19 +237,36 @@ module Miasma
         # @param stack [Models::Orchestration::Stack]
         # @return [Array<Models::Orchestration::Stack::Resource>]
         def resource_all(stack)
-          stack.custom.fetch(:properties, :dependencies, []).map do |res|
-            evt = stack.events.all.detect{|ev| ev.resource_id == res[:id]}
-            Stack::Resource.new(
-              stack,
-              :id => res[:id],
-              :type => res[:resourceType],
-              :name => res[:resourceName],
-              :logical_id => res[:resourceName],
-              :state => evt.resource_state,
-              :status => evt.resource_status,
-              :status_reason => evt.resource_status_reason,
-              :updated => evt.time
-            ).valid_state
+          if(stack.persisted?)
+            result = request(
+              :path => [generate_path, stack.name, 'resources'].join('/'),
+            )
+            result.fetch(:body, :value, []).map do |res|
+              info = Smash.new(
+                :id => res[:id],
+                :type => res[:type],
+                :name => res[:name],
+                :logical_id => res[:name],
+                :state => :unknown,
+                :status => 'Unknown'
+              )
+              evt = stack.events.all.detect do |event|
+                event.resource_id == res[:id]
+              end
+              if(evt)
+                info = info.merge(
+                  Smash.new(
+                    :state => evt.resource_state,
+                    :status => evt.resource_status,
+                    :status_reason => evt.resource_status_reason,
+                    :updated => evt.time
+                  )
+                )
+              end
+              Stack::Resource.new(stack, info).valid_state
+            end
+          else
+            []
           end
         end
 
