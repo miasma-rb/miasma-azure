@@ -16,7 +16,7 @@ module Miasma
           'Deleted' => :delete_complete
         )
 
-        def orchestration_api_version
+        def api_version
           '2015-01-01'
         end
 
@@ -111,7 +111,7 @@ module Miasma
             }
           )
           deployment_id = result.get(:body, :id)
-          stack_id = deployment_id.sub(%r{/microsoft.resources.+}, '')
+          stack_id = deployment_id.sub(/\/providers\/microsoft.resources.+/i, '')
           stack_name = File.basename(stack_id)
           stack.id = stack_id
           stack.name = stack_name
