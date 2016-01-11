@@ -146,6 +146,8 @@ module Miasma
         end
 
         def generate_signature(http_method, headers, resource)
+          headers = headers.to_smash
+          headers.delete('Content-Length') if headers['Content-Length'].to_s == '0'
           to_sign = [
             http_method.to_s.upcase,
             *self.class.const_get(:SIGNATURE_HEADERS).map{|head_name|
@@ -182,6 +184,37 @@ module Miasma
           ].join("\n")
         end
 
+        class SasBlob < SignatureAzure
+
+          SIGNATURE_HEADERS = [
+            'Cache-Control',
+            'Content-Disposition',
+            'Content-Encoding',
+            'Content-Language',
+            'Content-Type'
+          ]
+
+          def generate(http_method, path, opts)
+            params = opts.fetch(:params, Smash.new)
+            headers = opts.fetch(:headers, Smash.new)
+            to_sign = [
+              params[:sp],
+              params[:st],
+              params[:se],
+              ['/blob', account_name, path].join('/'),
+              params[:si],
+              params[:sip],
+              params[:spr],
+              params[:sv],
+              *self.class.const_get(:SIGNATURE_HEADERS).map{|head_name|
+                headers.fetch(head_name, '')
+              }
+            ].map(&:to_s).join("\n")
+            sign_request(to_sign)
+          end
+
+        end
+
       end
 
       module ApiCommon
@@ -192,11 +225,12 @@ module Miasma
             attribute :azure_client_id, String
             attribute :azure_subscription_id, String
             attribute :azure_client_secret, String
-            attribute :azure_resource_group, String
+            attribute :azure_region, String
             attribute :azure_resource, String, :default => 'https://management.azure.com/'
             attribute :azure_login_url, String, :default => 'https://login.microsoftonline.com'
             attribute :azure_blob_account_name, String
             attribute :azure_blob_secret_key, String
+            attribute :azure_root_orchestration_container, String, :default => 'miasma-orchestration-templates'
 
             attr_reader :signer
           end
