@@ -18,10 +18,12 @@ Orchestration makes use of two services:
 1. Azure Storage Services - Blob
 2. Azure Resource Manager
 
-Credentials for the blob service are defined above.
+> Credentials for the blob service are defined above.
 
 Credentials for the Azure Resource Manager require some setup
-within Azure due to the oauth2 requirement.
+within Azure due to the OAuth2 requirement. To setup an OAuth2
+application allowing miasma to function properly, perform the
+following steps:
 
 Start at the Azure portal:
 
