@@ -25,25 +25,25 @@ within Azure due to the oauth2 requirement.
 
 Start at the Azure portal:
 
-1. Click `Browse` to open available service list.
-2. Click `Active Directory` to open AD service.
-3. Choose desired directory and click `APPLICATIONS`.
-4. At the bottom of the page click `ADD`.
-5. Click `Add an application my organization is developing`.
-6. Enter a name for the application.
-7. Click the `WEB APPLICATION AND/OR WEB API` radio button.
-8. Click the next arrow `->`.
-9. Enter `http://localhost` for the `SIGN-ON URL`.
-10. Enter `https://management.azure.com/` for the `APP ID URL`.
-11. Click the check icon to complete the application setup.
-12. Click `CONFIGURE`.
-13. Locate the section named `keys`.
-14. Select `1 year` or `2 years` from the drop down.
-15. Click `SAVE` at the bottom of the screen.
-16. The key value will now be visible. Copy the key value (This is the `azure_client_secret`).
-17. Go back to the Azure Portal.
-18. Click `Subscriptions`.
-19. Click desired subscription.
+1. Click `Browse` to open available service list
+2. Click `Active Directory` to open AD service
+3. Choose desired directory and click `APPLICATIONS`
+4. At the bottom of the page click `ADD`
+5. Click `Add an application my organization is developing`
+6. Enter a name for the application
+7. Click the `WEB APPLICATION AND/OR WEB API` radio button
+8. Click the next arrow `->`
+9. Enter `http://localhost` for the `SIGN-ON URL`
+10. Enter `https://management.azure.com/` for the `APP ID URL`
+11. Click the check icon to complete the application setup
+12. Click `CONFIGURE`
+13. Locate the section named `keys`
+14. Select `1 year` or `2 years` from the drop down
+15. Click `SAVE` at the bottom of the screen
+16. The key value will now be visible. Copy the key value (This is the `azure_client_secret`)
+17. Go back to the Azure Portal
+18. Click `Subscriptions`
+19. Click desired subscription
 20. Click `Settings`
 21. Click `Users`
 22. Click `Add`
