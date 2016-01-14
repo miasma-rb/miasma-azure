@@ -37,29 +37,40 @@ module Miasma
         def load_stack_data(stack=nil)
           if(stack)
             result = request(
-              :path => generate_path(stack)
+              :path => generate_path(stack),
+              :expects => [200, 404]
             )
-            item = result[:body]
-            deployment_id = item[:id]
-            stack_id = deployment_id.sub(/\/providers\/microsoft.resources.+/i, '')
-            stack_name = File.basename(stack_id)
-            stack.data.merge!(
-              :id => stack_id,
-              :name => stack_name,
-              :parameters => Smash[
-                item.fetch(:parameters, {}).map do |p_name, p_value|
-                  [p_name, p_value[:value]]
-                end
-              ],
-              :outputs => item.fetch(:outputs, {}).map{ |o_name, o_value|
-                Smash.new(:key => o_name, :value => o_value[:value])
-              },
-              :template_url => item.get(:properties, :templateLink, :uri),
-              :state => status_to_state(item.get(:properties, :provisioningState)),
-              :status => item.get(:properties, :provisioningState),
-              :custom => item
-            )
-            stack.valid_state
+            if(result[:response].code == 404)
+              stack.data.merge!(
+                :state => :unknown,
+                :status => 'Unknown'
+              )
+              stack.valid_state
+            else
+              item = result[:body]
+              deployment_id = item[:id]
+              stack_id = deployment_id.sub(/\/providers\/microsoft.resources.+/i, '')
+              stack_name = File.basename(stack_id)
+              stack.data.merge!(
+                :id => stack_id,
+                :name => stack_name,
+                :parameters => Smash[
+                  item.fetch(:parameters, {}).map do |p_name, p_value|
+                    [p_name, p_value[:value]]
+                  end
+                ],
+                :outputs => item.fetch(:outputs, {}).map{ |o_name, o_value|
+                  Smash.new(:key => o_name, :value => o_value[:value])
+                },
+                :template_url => item.get(:properties, :templateLink, :uri),
+                :state => status_to_state(item.get(:properties, :provisioningState)),
+                :status => item.get(:properties, :provisioningState),
+                :updated => Time.parse(item.get(:properties, :timestamp)),
+                :tags => Smash.new,
+                :custom => item
+              )
+              stack.valid_state
+            end
           else
             result = request(
               :path => generate_path
@@ -72,6 +83,7 @@ module Miasma
                 :state => status_to_state(item.get(:properties, :provisioningState)),
                 :status => item.get(:properties, :provisioningState)
               ).valid_state
+              load_stack_data(new_stack)
             end
           end
         end
@@ -218,10 +230,9 @@ module Miasma
         # @return [Stack]
         def stack_get(ident)
           i = Stack.new(self)
-          i.id = ident
+          i.id = i.name = ident
           i.reload
-          i.name ? i : nil
-        end
+         end
 
         # Return all stacks
         #
@@ -293,6 +304,7 @@ module Miasma
               :id => event[:operationId],
               :resource_id => event.get(:properties, :targetResource, :id),
               :resource_name => event.get(:properties, :targetResource, :resourceName),
+              :resource_logical_id => event.get(:properties, :targetResource, :resourceName),
               :resource_state => status_to_state(event.get(:properties, :provisioningState)),
               :resource_status => event.get(:properties, :provisioningState),
               :resource_status_reason => event.get(:properties, :statusCode),
