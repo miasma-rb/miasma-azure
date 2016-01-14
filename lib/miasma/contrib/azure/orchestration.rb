@@ -26,8 +26,12 @@ module Miasma
           path
         end
 
-        def status_to_state(val)
-          STATUS_MAP.fetch(val, :create_in_progress)
+        def status_to_state(val, modifier=nil)
+          val = STATUS_MAP.fetch(val, :create_in_progress)
+          if(modifier && modifier.to_s != 'create' && val.to_s.start_with?('create'))
+            val = val.to_s.sub('create', modifier).to_sym
+          end
+          val
         end
 
         # Fetch stacks or update provided stack data
@@ -36,55 +40,92 @@ module Miasma
         # @return [Array<Models::Orchestration::Stack>]
         def load_stack_data(stack=nil)
           if(stack)
-            result = request(
-              :path => generate_path(stack),
-              :expects => [200, 404]
-            )
-            if(result[:response].code == 404)
+            fetch_single_stack(stack)
+          else
+            fetch_all_stacks.map do |n_stack|
+              fetch_single_stack(n_stack)
+            end
+          end
+        end
+
+        def fetch_single_stack(stack)
+          unless(stack.custom[:base_load])
+            n_stack = fetch_all_stacks.detect do |s|
+              s.name == stack.name ||
+                s.id == stack.id
+            end
+            if(n_stack)
+              stack.data.deep_merge!(n_stack.attributes)
+            end
+          end
+          result = request(
+            :path => generate_path(stack),
+            :expects => [200, 404]
+          )
+          if(result[:response].code == 404)
+            if(state = stack.tags[:state])
+              case state
+              when 'create'
+                stack.status = 'Creating'
+                stack.state = :create_in_progress
+              else
+                stack.status = 'Deleting'
+                stack.state = :delete_in_progress
+              end
+            else
               stack.data.merge!(
                 :state => :unknown,
                 :status => 'Unknown'
               )
-              stack.valid_state
-            else
-              item = result[:body]
-              deployment_id = item[:id]
-              stack_id = deployment_id.sub(/\/providers\/microsoft.resources.+/i, '')
-              stack_name = File.basename(stack_id)
-              stack.data.merge!(
-                :id => stack_id,
-                :name => stack_name,
-                :parameters => Smash[
-                  item.fetch(:parameters, {}).map do |p_name, p_value|
-                    [p_name, p_value[:value]]
-                  end
-                ],
-                :outputs => item.fetch(:outputs, {}).map{ |o_name, o_value|
-                  Smash.new(:key => o_name, :value => o_value[:value])
-                },
-                :template_url => item.get(:properties, :templateLink, :uri),
-                :state => status_to_state(item.get(:properties, :provisioningState)),
-                :status => item.get(:properties, :provisioningState),
-                :updated => Time.parse(item.get(:properties, :timestamp)),
-                :tags => Smash.new,
-                :custom => item
-              )
-              stack.valid_state
             end
+            stack.valid_state
           else
-            result = request(
-              :path => generate_path
+            item = result[:body]
+            deployment_id = item[:id]
+            stack_id = deployment_id.sub(/\/providers\/microsoft.resources.+/i, '')
+            stack_name = File.basename(stack_id)
+            stack.data.merge!(
+              :id => stack_id,
+              :name => stack_name,
+              :parameters => Smash[
+                item.fetch(:parameters, {}).map do |p_name, p_value|
+                  [p_name, p_value[:value]]
+                end
+              ],
+              :outputs => item.fetch(:outputs, {}).map{ |o_name, o_value|
+                Smash.new(:key => o_name, :value => o_value[:value])
+              },
+              :template_url => item.get(:properties, :templateLink, :uri),
+              :state => status_to_state(
+                item.get(:properties, :provisioningState),
+                stack.tags[:state]
+              ),
+              :status => item.get(:properties, :provisioningState),
+              :updated => Time.parse(item.get(:properties, :timestamp)),
+              :custom => item
             )
-            result.fetch(:body, :value, []).map do |item|
-              new_stack = Stack.new(self)
-              new_stack.load_data(
-                :id => item[:id],
-                :name => item[:name],
-                :state => status_to_state(item.get(:properties, :provisioningState)),
-                :status => item.get(:properties, :provisioningState)
-              ).valid_state
-              load_stack_data(new_stack)
-            end
+            stack.valid_state
+          end
+        end
+
+        def fetch_all_stacks
+          result = request(
+            :path => generate_path
+          )
+          result.fetch(:body, :value, []).map do |item|
+            new_stack = Stack.new(self)
+            new_stack.load_data(
+              :id => item[:id],
+              :name => item[:name],
+              :state => status_to_state(
+                item.get(:properties, :provisioningState),
+                item.get(:tags, :state)
+              ),
+              :status => item.get(:properties, :provisioningState),
+              :tags => item.fetch(:tags, Smash.new),
+              :created => item.get(:tags, :created) ? Time.at(item.get(:tags, :created).to_i).utc : nil,
+              :custom => Smash.new(:base_load => true)
+            ).valid_state
           end
         end
 
@@ -98,13 +139,25 @@ module Miasma
             request(
               :path => [generate_path, stack.name].join('/'),
               :method => :put,
-              :params => {
-                'api-version' => '2015-01-01'
-              },
               :json => {
-                :location => azure_region
+                :location => azure_region,
+                :tags => {
+                  :created => Time.now.to_i,
+                  :state => 'create'
+                }
               },
               :expects => [200, 201]
+            )
+          else
+            request(
+              :path => [generate_path, stack.name].join('/'),
+              :method => :patch,
+              :json => {
+                :tags => stack.tags.merge(
+                  :updated => Time.now.to_i,
+                  :state => 'update'
+                )
+              }
             )
           end
           result = request(
