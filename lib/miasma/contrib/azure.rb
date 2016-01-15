@@ -341,7 +341,11 @@ module Miasma
         end
 
         def retryable_allowed?(*_)
-          !ENV['DEBUG']
+          if(ENV['DEBUG'])
+            false
+          else
+            super
+          end
         end
 
         # @return [String] custom escape
