@@ -188,7 +188,11 @@ module Miasma
                   :uri => stack.template_url,
                   :contentVersion => '1.0.0.0'
                 },
-                :parameters => stack.parameters,
+                :parameters => Smash[
+                  stack.parameters.map do |p_key, p_value|
+                    [p_key, :value => p_value]
+                  end
+                ],
                 :mode => 'Complete'
               }
             }
@@ -216,7 +220,7 @@ module Miasma
             bucket.save
           end
           file = bucket.files.build
-          file.name = "#{stack.name}-#{SecureRandom.uuid}.json"
+          file.name = "#{stack.name}-#{attributes.checksum}.json"
           file.body = MultiJson.dump(stack.template)
           file.save
           stack.template_url = file.url
@@ -243,7 +247,7 @@ module Miasma
           if(stack.persisted?)
             request(
               :method => :delete,
-              :expects => 202,
+              :expects => [202, 204],
               :path => generate_path(stack)
             )
             request(
@@ -271,7 +275,7 @@ module Miasma
               file.body.rewind
               MultiJson.load(file.body.read).to_smash
             else
-              raise "Stack template is not remotely stored. Unavailable! (stack: `#{stack.name}`)"
+              Smash.new
             end
           else
             Smash.new
