@@ -6,6 +6,7 @@ module Miasma
     class Storage
       class Azure < Storage
 
+        # Required attributes for this API
         REQUIRED_ATTRIBUTES = [
           :azure_blob_secret_key,
           :azure_blob_account_name
@@ -41,7 +42,7 @@ module Miasma
           list.compact
         end
 
-
+        # @return [Contrib::AzureApiCore::SignatureAzure::SasBlob]
         attr_reader :url_signer
 
         # Simple init override to force HOST and adjust region for
@@ -64,10 +65,12 @@ module Miasma
           super(args)
         end
 
+        # @return [String] supported API version
         def api_version
           '2015-04-05'
         end
 
+        # @return [String] API endoint
         def endpoint
           "https://#{azure_blob_account_name}.blob.core.windows.net"
         end
