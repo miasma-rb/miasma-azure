@@ -1,0 +1,1482 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/?comp=list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      X-Ms-Date:
+      - Fri, 15 Jan 2016 21:43:00 GMT
+      X-Ms-Version:
+      - '2015-04-05'
+      Authorization:
+      - SharedKey MIASMA_AZURE_BLOB_ACCOUNT_NAME:TQ469/+JlVB+I+HVeXf5042p5UZkBjdxJhnQXsgGmBI=
+      Connection:
+      - close
+      Host:
+      - MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/xml
+      Server:
+      - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+      X-Ms-Request-Id:
+      - e4601afb-0001-0045-4cdd-4fbb14000000
+      X-Ms-Version:
+      - '2015-04-05'
+      Date:
+      - Fri, 15 Jan 2016 21:42:59 GMT
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48RW51
+        bWVyYXRpb25SZXN1bHRzIFNlcnZpY2VFbmRwb2ludD0iaHR0cHM6Ly9NSUFT
+        TUFfQVpVUkVfQkxPQl9BQ0NPVU5UX05BTUUuYmxvYi5jb3JlLndpbmRvd3Mu
+        bmV0LyI+PENvbnRhaW5lcnM+PENvbnRhaW5lcj48TmFtZT5taWFzbWEtb3Jj
+        aGVzdHJhdGlvbi10ZW1wbGF0ZXM8L05hbWU+PFByb3BlcnRpZXM+PExhc3Qt
+        TW9kaWZpZWQ+TW9uLCAxMSBKYW4gMjAxNiAyMDozNToyMiBHTVQ8L0xhc3Qt
+        TW9kaWZpZWQ+PEV0YWc+IjB4OEQzMUFDNkJBN0I5MDE1IjwvRXRhZz48TGVh
+        c2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2
+        YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRpZXM+PC9Db250YWluZXI+
+        PC9Db250YWluZXJzPjxOZXh0TWFya2VyIC8+PC9FbnVtZXJhdGlvblJlc3Vs
+        dHM+
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:00 GMT
+- request:
+    method: put
+    uri: https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#","contentVersion":"1.0.0.0","parameters":{"location":{"type":"string","defaultValue":"MIASMA_AZURE_REGION"}},"variables":{"apiVersion":"2015-06-15"},"resources":[{"type":"Microsoft.Network/networkSecurityGroups","properties":{"securityRules":[{"name":"first_rule","properties":{"description":"First
+        Rule","protocol":"Tcp","sourcePortRange":"23-45","destinationPortRange":"46-56","sourceAddressPrefix":"*","destinationAddressPrefix":"*","access":"Allow","priority":123,"direction":"Inbound"}}]},"apiVersion":"[variables(''apiVersion'')]","location":"[parameters(''location'')]","name":"testNetworkSecurityGroups"}]}'
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Content-Length:
+      - '689'
+      X-Ms-Blob-Type:
+      - BlockBlob
+      X-Ms-Date:
+      - Fri, 15 Jan 2016 21:43:00 GMT
+      X-Ms-Version:
+      - '2015-04-05'
+      Authorization:
+      - SharedKey MIASMA_AZURE_BLOB_ACCOUNT_NAME:s0JtpY/dI+C6WMTCAmvRBvwvi1tbXrFZ07XvY0Q+OiU=
+      Connection:
+      - close
+      Host:
+      - MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Content-Md5:
+      - 6++cukyW1R237OYLj0dhRg==
+      Last-Modified:
+      - Fri, 15 Jan 2016 21:43:00 GMT
+      Etag:
+      - '"0x8D31DF4D6B19ECD"'
+      Server:
+      - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+      X-Ms-Request-Id:
+      - 76c5195b-0001-0015-4bdd-4fa41c000000
+      X-Ms-Version:
+      - '2015-04-05'
+      Date:
+      - Fri, 15 Jan 2016 21:43:00 GMT
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:00 GMT
+- request:
+    method: head
+    uri: https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      X-Ms-Date:
+      - Fri, 15 Jan 2016 21:43:00 GMT
+      X-Ms-Version:
+      - '2015-04-05'
+      Authorization:
+      - SharedKey MIASMA_AZURE_BLOB_ACCOUNT_NAME:CDGuzTGejgBqef4L3EDa0SCb8jKHKGGGNMqnb5WnHvQ=
+      Connection:
+      - close
+      Host:
+      - MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '689'
+      Content-Type:
+      - application/octet-stream
+      Content-Md5:
+      - 6++cukyW1R237OYLj0dhRg==
+      Last-Modified:
+      - Fri, 15 Jan 2016 21:43:00 GMT
+      Accept-Ranges:
+      - bytes
+      Etag:
+      - '"0x8D31DF4D6B19ECD"'
+      Server:
+      - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+      X-Ms-Request-Id:
+      - c5b30f66-0001-0049-51dd-4f55e5000000
+      X-Ms-Version:
+      - '2015-04-05'
+      X-Ms-Lease-Status:
+      - unlocked
+      X-Ms-Lease-State:
+      - available
+      X-Ms-Blob-Type:
+      - BlockBlob
+      Date:
+      - Fri, 15 Jan 2016 21:43:00 GMT
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:01 GMT
+- request:
+    method: post
+    uri: https://login.microsoftonline.com/MIASMA_AZURE_TENANT_ID/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=client_credentials&client_id=MIASMA_AZURE_CLIENT_ID&client_secret=zOGFwHVJOifMbEFjAsoKCsASJUcr1RUq3h6P57fjSKM%3D&resource=https%3A%2F%2Fmanagement.azure.com%2F
+    headers:
+      Connection:
+      - close
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '184'
+      Host:
+      - login.microsoftonline.com
+      User-Agent:
+      - http.rb/1.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.5
+      X-Ms-Request-Id:
+      - 9007f588-f4d5-4f77-b842-8a7f7638c7a4
+      Client-Request-Id:
+      - 142a2e34-617b-4fb0-890e-be3b295f70be
+      X-Ms-Gateway-Service-Instanceid:
+      - ESTSFE_IN_191
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      P3p:
+      - CP="DSP CUR OTPi IND OTRi ONL FIN"
+      Set-Cookie:
+      - flight-uxoptin=true; path=/; secure; HttpOnly
+      - stsservicecookie=ests; path=/; secure; HttpOnly
+      - x-ms-gateway-slice=productionb; path=/; secure; HttpOnly
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Fri, 15 Jan 2016 21:43:00 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '1247'
+    body:
+      encoding: UTF-8
+      string: '{"token_type":"Bearer","expires_in":"3600","scope":"user_impersonation","expires_on":"1452897781","not_before":"1452893881","resource":"https://management.azure.com/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ"}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:01 GMT
+- request:
+    method: put
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack?api-version=2015-01-01
+    body:
+      encoding: UTF-8
+      string: '{"location":"MIASMA_AZURE_REGION","tags":{"created":1452894181,"state":"create"}}'
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '236'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Writes:
+      - '1196'
+      X-Ms-Request-Id:
+      - a75c4134-63f8-4856-aa96-cbe81ffd62e2
+      X-Ms-Correlation-Request-Id:
+      - a75c4134-63f8-4856-aa96-cbe81ffd62e2
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214302Z:a75c4134-63f8-4856-aa96-cbe81ffd62e2
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:02 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack","name":"miasma-test-stack","location":"MIASMA_AZURE_REGION","tags":{"created":"1452894181","state":"create"},"properties":{"provisioningState":"Succeeded"}}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:01 GMT
+- request:
+    method: put
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack/providers/microsoft.resources/deployments/miasma-stack?api-version=2015-01-01
+    body:
+      encoding: UTF-8
+      string: '{"properties":{"templateLink":{"uri":"https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json?sr=b&sv=2015-04-05&se=2016-01-15T21%3A44%3A01Z&sp=r&sig=a1VLFQ%2BEF7VXVdC%2F%2FhRAWrJVh%2BSVJiV2KI5XuHIq5i8%3D","contentVersion":"1.0.0.0"},"parameters":{"location":{"value":"MIASMA_AZURE_REGION"}},"mode":"Complete"}}'
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Azure-Asyncoperation:
+      - https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack/providers/Microsoft.Resources/deployments/miasma-stack/operationStatuses/08587487127028032292?api-version=2015-01-01
+      X-Ms-Ratelimit-Remaining-Subscription-Writes:
+      - '1196'
+      X-Ms-Request-Id:
+      - 1114eb8b-c1ad-4c29-9706-f3ae57737300
+      X-Ms-Correlation-Request-Id:
+      - 1114eb8b-c1ad-4c29-9706-f3ae57737300
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214302Z:1114eb8b-c1ad-4c29-9706-f3ae57737300
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:02 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '890'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack/providers/Microsoft.Resources/deployments/miasma-stack","name":"miasma-stack","properties":{"templateLink":{"uri":"https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json?sr=b&sv=2015-04-05&se=2016-01-15T21%3A44%3A01Z&sp=r&sig=a1VLFQ%2BEF7VXVdC%2F%2FhRAWrJVh%2BSVJiV2KI5XuHIq5i8%3D","contentVersion":"1.0.0.0"},"parameters":{"location":{"type":"String","value":"MIASMA_AZURE_REGION"}},"mode":"Complete","provisioningState":"Accepted","timestamp":"2016-01-15T21:43:02.9161129Z","duration":"PT0.2416711S","correlationId":"1114eb8b-c1ad-4c29-9706-f3ae57737300","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"networkSecurityGroups","locations":["MIASMA_AZURE_REGION"]}]}],"dependencies":[]}}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:02 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14965'
+      X-Ms-Request-Id:
+      - 073449ae-69c9-46c8-b5a6-ec1114714264
+      X-Ms-Correlation-Request-Id:
+      - 073449ae-69c9-46c8-b5a6-ec1114714264
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214303Z:073449ae-69c9-46c8-b5a6-ec1114714264
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:02 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '424'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/DefaultTest","name":"DefaultTest","location":"MIASMA_AZURE_REGION","properties":{"provisioningState":"Succeeded"}},{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack","name":"miasma-test-stack","location":"MIASMA_AZURE_REGION","tags":{"created":"1452894181","state":"create"},"properties":{"provisioningState":"Succeeded"}}]}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:03 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack/providers/microsoft.resources/deployments/miasma-stack?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14972'
+      X-Ms-Request-Id:
+      - 3e9c9d92-9eb5-4af6-b9c9-5944b657495a
+      X-Ms-Correlation-Request-Id:
+      - 3e9c9d92-9eb5-4af6-b9c9-5944b657495a
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214303Z:3e9c9d92-9eb5-4af6-b9c9-5944b657495a
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:03 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '888'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack/providers/Microsoft.Resources/deployments/miasma-stack","name":"miasma-stack","properties":{"templateLink":{"uri":"https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json?sr=b&sv=2015-04-05&se=2016-01-15T21%3A44%3A01Z&sp=r&sig=a1VLFQ%2BEF7VXVdC%2F%2FhRAWrJVh%2BSVJiV2KI5XuHIq5i8%3D","contentVersion":"1.0.0.0"},"parameters":{"location":{"type":"String","value":"MIASMA_AZURE_REGION"}},"mode":"Complete","provisioningState":"Running","timestamp":"2016-01-15T21:43:02.9261628Z","duration":"PT0.251721S","correlationId":"1114eb8b-c1ad-4c29-9706-f3ae57737300","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"networkSecurityGroups","locations":["MIASMA_AZURE_REGION"]}]}],"dependencies":[]}}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:03 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14968'
+      X-Ms-Request-Id:
+      - 010fdc1f-a498-4b5b-83a8-b3ed773f5ebd
+      X-Ms-Correlation-Request-Id:
+      - 010fdc1f-a498-4b5b-83a8-b3ed773f5ebd
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214324Z:010fdc1f-a498-4b5b-83a8-b3ed773f5ebd
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:23 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '424'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/DefaultTest","name":"DefaultTest","location":"MIASMA_AZURE_REGION","properties":{"provisioningState":"Succeeded"}},{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack","name":"miasma-test-stack","location":"MIASMA_AZURE_REGION","tags":{"created":"1452894181","state":"create"},"properties":{"provisioningState":"Succeeded"}}]}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:24 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack/providers/microsoft.resources/deployments/miasma-stack?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14967'
+      X-Ms-Request-Id:
+      - 1335b3fc-3fcd-4182-a983-aca4ddea4f3e
+      X-Ms-Correlation-Request-Id:
+      - 1335b3fc-3fcd-4182-a983-aca4ddea4f3e
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214324Z:1335b3fc-3fcd-4182-a983-aca4ddea4f3e
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:24 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '888'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack/providers/Microsoft.Resources/deployments/miasma-stack","name":"miasma-stack","properties":{"templateLink":{"uri":"https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json?sr=b&sv=2015-04-05&se=2016-01-15T21%3A44%3A01Z&sp=r&sig=a1VLFQ%2BEF7VXVdC%2F%2FhRAWrJVh%2BSVJiV2KI5XuHIq5i8%3D","contentVersion":"1.0.0.0"},"parameters":{"location":{"type":"String","value":"MIASMA_AZURE_REGION"}},"mode":"Complete","provisioningState":"Running","timestamp":"2016-01-15T21:43:02.9261628Z","duration":"PT0.251721S","correlationId":"1114eb8b-c1ad-4c29-9706-f3ae57737300","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"networkSecurityGroups","locations":["MIASMA_AZURE_REGION"]}]}],"dependencies":[]}}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:24 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14964'
+      X-Ms-Request-Id:
+      - 1f8da3c7-db00-4569-935c-940d24065181
+      X-Ms-Correlation-Request-Id:
+      - 1f8da3c7-db00-4569-935c-940d24065181
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214324Z:1f8da3c7-db00-4569-935c-940d24065181
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:24 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '424'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/DefaultTest","name":"DefaultTest","location":"MIASMA_AZURE_REGION","properties":{"provisioningState":"Succeeded"}},{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack","name":"miasma-test-stack","location":"MIASMA_AZURE_REGION","tags":{"created":"1452894181","state":"create"},"properties":{"provisioningState":"Succeeded"}}]}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:24 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack/providers/microsoft.resources/deployments/miasma-stack?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14965'
+      X-Ms-Request-Id:
+      - 2f5ffcb9-4636-4b17-90db-3baba06f96b6
+      X-Ms-Correlation-Request-Id:
+      - 2f5ffcb9-4636-4b17-90db-3baba06f96b6
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214325Z:2f5ffcb9-4636-4b17-90db-3baba06f96b6
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:24 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '888'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack/providers/Microsoft.Resources/deployments/miasma-stack","name":"miasma-stack","properties":{"templateLink":{"uri":"https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json?sr=b&sv=2015-04-05&se=2016-01-15T21%3A44%3A01Z&sp=r&sig=a1VLFQ%2BEF7VXVdC%2F%2FhRAWrJVh%2BSVJiV2KI5XuHIq5i8%3D","contentVersion":"1.0.0.0"},"parameters":{"location":{"type":"String","value":"MIASMA_AZURE_REGION"}},"mode":"Complete","provisioningState":"Running","timestamp":"2016-01-15T21:43:02.9261628Z","duration":"PT0.251721S","correlationId":"1114eb8b-c1ad-4c29-9706-f3ae57737300","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"networkSecurityGroups","locations":["MIASMA_AZURE_REGION"]}]}],"dependencies":[]}}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:25 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14966'
+      X-Ms-Request-Id:
+      - 06d3eeb6-da4f-46b1-b441-10ae16809db5
+      X-Ms-Correlation-Request-Id:
+      - 06d3eeb6-da4f-46b1-b441-10ae16809db5
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214345Z:06d3eeb6-da4f-46b1-b441-10ae16809db5
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:44 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '424'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/DefaultTest","name":"DefaultTest","location":"MIASMA_AZURE_REGION","properties":{"provisioningState":"Succeeded"}},{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack","name":"miasma-test-stack","location":"MIASMA_AZURE_REGION","tags":{"created":"1452894181","state":"create"},"properties":{"provisioningState":"Succeeded"}}]}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:45 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack/providers/microsoft.resources/deployments/miasma-stack?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14967'
+      X-Ms-Request-Id:
+      - a33bdbb2-0070-4a2d-9328-882469386abb
+      X-Ms-Correlation-Request-Id:
+      - a33bdbb2-0070-4a2d-9328-882469386abb
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214345Z:a33bdbb2-0070-4a2d-9328-882469386abb
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:45 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '987'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack/providers/Microsoft.Resources/deployments/miasma-stack","name":"miasma-stack","properties":{"templateLink":{"uri":"https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json?sr=b&sv=2015-04-05&se=2016-01-15T21%3A44%3A01Z&sp=r&sig=a1VLFQ%2BEF7VXVdC%2F%2FhRAWrJVh%2BSVJiV2KI5XuHIq5i8%3D","contentVersion":"1.0.0.0"},"parameters":{"location":{"type":"String","value":"MIASMA_AZURE_REGION"}},"mode":"Complete","provisioningState":"Succeeded","timestamp":"2016-01-15T21:43:26.8869715Z","duration":"PT24.2125297S","correlationId":"1114eb8b-c1ad-4c29-9706-f3ae57737300","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"networkSecurityGroups","locations":["MIASMA_AZURE_REGION"]}]}],"dependencies":[],"outputResources":[{"id":"Microsoft.Network/networkSecurityGroups/testNetworkSecurityGroups"}]}}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:45 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14966'
+      X-Ms-Request-Id:
+      - 05e07b90-3f57-44e2-9017-90667c4129de
+      X-Ms-Correlation-Request-Id:
+      - 05e07b90-3f57-44e2-9017-90667c4129de
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214346Z:05e07b90-3f57-44e2-9017-90667c4129de
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:46 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '424'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/DefaultTest","name":"DefaultTest","location":"MIASMA_AZURE_REGION","properties":{"provisioningState":"Succeeded"}},{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack","name":"miasma-test-stack","location":"MIASMA_AZURE_REGION","tags":{"created":"1452894181","state":"create"},"properties":{"provisioningState":"Succeeded"}}]}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:46 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack/providers/microsoft.resources/deployments/miasma-stack?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14969'
+      X-Ms-Request-Id:
+      - a983832b-b271-4c42-9ccd-e317ce970834
+      X-Ms-Correlation-Request-Id:
+      - a983832b-b271-4c42-9ccd-e317ce970834
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214347Z:a983832b-b271-4c42-9ccd-e317ce970834
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:47 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '987'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack/providers/Microsoft.Resources/deployments/miasma-stack","name":"miasma-stack","properties":{"templateLink":{"uri":"https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json?sr=b&sv=2015-04-05&se=2016-01-15T21%3A44%3A01Z&sp=r&sig=a1VLFQ%2BEF7VXVdC%2F%2FhRAWrJVh%2BSVJiV2KI5XuHIq5i8%3D","contentVersion":"1.0.0.0"},"parameters":{"location":{"type":"String","value":"MIASMA_AZURE_REGION"}},"mode":"Complete","provisioningState":"Succeeded","timestamp":"2016-01-15T21:43:26.8869715Z","duration":"PT24.2125297S","correlationId":"1114eb8b-c1ad-4c29-9706-f3ae57737300","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"networkSecurityGroups","locations":["MIASMA_AZURE_REGION"]}]}],"dependencies":[],"outputResources":[{"id":"Microsoft.Network/networkSecurityGroups/testNetworkSecurityGroups"}]}}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:46 GMT
+- request:
+    method: get
+    uri: https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates?comp=list&prefix=&restype=container
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      X-Ms-Date:
+      - Fri, 15 Jan 2016 21:43:46 GMT
+      X-Ms-Version:
+      - '2015-04-05'
+      Authorization:
+      - SharedKey MIASMA_AZURE_BLOB_ACCOUNT_NAME:jAR/UPc6pI4Xh3XmUxadFc1kW5eIe38mjrJqD4pxrk4=
+      Connection:
+      - close
+      Host:
+      - MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/xml
+      Server:
+      - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+      X-Ms-Request-Id:
+      - 23936662-0001-00a8-50dd-4fb290000000
+      X-Ms-Version:
+      - '2015-04-05'
+      Date:
+      - Fri, 15 Jan 2016 21:43:45 GMT
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48RW51
+        bWVyYXRpb25SZXN1bHRzIFNlcnZpY2VFbmRwb2ludD0iaHR0cHM6Ly9NSUFT
+        TUFfQVpVUkVfQkxPQl9BQ0NPVU5UX05BTUUuYmxvYi5jb3JlLndpbmRvd3Mu
+        bmV0LyIgQ29udGFpbmVyTmFtZT0ibWlhc21hLW9yY2hlc3RyYXRpb24tdGVt
+        cGxhdGVzIj48QmxvYnM+PEJsb2I+PE5hbWU+YXp1cmUtc2ZuLXRlc3QtMS0x
+        ZDU3YWM4OC1hZjU5LTRhODctYWFmZC1jYzE2NzBhMWU3MmIuanNvbjwvTmFt
+        ZT48UHJvcGVydGllcz48TGFzdC1Nb2RpZmllZD5UaHUsIDE0IEphbiAyMDE2
+        IDE5OjA0OjA0IEdNVDwvTGFzdC1Nb2RpZmllZD48RXRhZz4weDhEMzFEMTU3
+        ODk0MDFBRTwvRXRhZz48Q29udGVudC1MZW5ndGg+OTI2PC9Db250ZW50LUxl
+        bmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwv
+        Q29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFu
+        Z3VhZ2UgLz48Q29udGVudC1NRDU+c3Y0bXBqZHRxK0tNWnlhREx0OUtsUT09
+        PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bv
+        c2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNl
+        U3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFp
+        bGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48
+        TmFtZT5henVyZS1zZm4tdGVzdC0xLTMzNTZiZDc2LTFjMjAtNGE5NC1hMDM3
+        LWIxY2VmZWVhNTQwMS5qc29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1v
+        ZGlmaWVkPlRodSwgMTQgSmFuIDIwMTYgMTY6NDI6MDYgR01UPC9MYXN0LU1v
+        ZGlmaWVkPjxFdGFnPjB4OEQzMUQwMUEzNkFBNUQwPC9FdGFnPjxDb250ZW50
+        LUxlbmd0aD4xNDczPC9Db250ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFw
+        cGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50
+        LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+
+        OC9FUXhkc2FpV2xmUlR5RGY0K3VhQT09PC9Db250ZW50LU1ENT48Q2FjaGUt
+        Q29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJs
+        b2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFz
+        ZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Q
+        cm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT5henVyZS1zZm4tdGVzdC0x
+        LTQxYTc3ODI2LTAyNTEtNGVkMS1iOTllLTk2ZjM4NTUwNTMzMi5qc29uPC9O
+        YW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPlRodSwgMTQgSmFuIDIw
+        MTYgMTk6MDM6MTcgR01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUQx
+        NTVDQjM2RjU1PC9FdGFnPjxDb250ZW50LUxlbmd0aD45MjY8L0NvbnRlbnQt
+        TGVuZ3RoPjxDb250ZW50LVR5cGU+YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFt
+        PC9Db250ZW50LVR5cGU+PENvbnRlbnQtRW5jb2RpbmcgLz48Q29udGVudC1M
+        YW5ndWFnZSAvPjxDb250ZW50LU1ENT5zdjRtcGpkdHErS01aeWFETHQ5S2xR
+        PT08L0NvbnRlbnQtTUQ1PjxDYWNoZS1Db250cm9sIC8+PENvbnRlbnQtRGlz
+        cG9zaXRpb24gLz48QmxvYlR5cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVh
+        c2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2
+        YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9i
+        PjxOYW1lPmF6dXJlLXNmbi10ZXN0LTEtNjAzZmFjNDMtOWM5My00NWI5LWE2
+        MDMtOWRjNzVjYjg3Y2M3Lmpzb248L05hbWU+PFByb3BlcnRpZXM+PExhc3Qt
+        TW9kaWZpZWQ+VGh1LCAxNCBKYW4gMjAxNiAxODowMzoyOSBHTVQ8L0xhc3Qt
+        TW9kaWZpZWQ+PEV0YWc+MHg4RDMxRDBEMDI0M0E3ODc8L0V0YWc+PENvbnRl
+        bnQtTGVuZ3RoPjkyNjwvQ29udGVudC1MZW5ndGg+PENvbnRlbnQtVHlwZT5h
+        cHBsaWNhdGlvbi9vY3RldC1zdHJlYW08L0NvbnRlbnQtVHlwZT48Q29udGVu
+        dC1FbmNvZGluZyAvPjxDb250ZW50LUxhbmd1YWdlIC8+PENvbnRlbnQtTUQ1
+        PnN2NG1wamR0cStLTVp5YURMdDlLbFE9PTwvQ29udGVudC1NRDU+PENhY2hl
+        LUNvbnRyb2wgLz48Q29udGVudC1EaXNwb3NpdGlvbiAvPjxCbG9iVHlwZT5C
+        bG9ja0Jsb2I8L0Jsb2JUeXBlPjxMZWFzZVN0YXR1cz51bmxvY2tlZDwvTGVh
+        c2VTdGF0dXM+PExlYXNlU3RhdGU+YXZhaWxhYmxlPC9MZWFzZVN0YXRlPjwv
+        UHJvcGVydGllcz48L0Jsb2I+PEJsb2I+PE5hbWU+YXp1cmUtc2ZuLXRlc3Qt
+        MS05MTkxMGZhOS0zMTc3LTRjZWItOWE5OS05YzMzMzdmOTYxZjcuanNvbjwv
+        TmFtZT48UHJvcGVydGllcz48TGFzdC1Nb2RpZmllZD5UaHUsIDE0IEphbiAy
+        MDE2IDE4OjQyOjMxIEdNVDwvTGFzdC1Nb2RpZmllZD48RXRhZz4weDhEMzFE
+        MTI3NjA5QkY5OTwvRXRhZz48Q29udGVudC1MZW5ndGg+OTI2PC9Db250ZW50
+        LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVh
+        bTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQt
+        TGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+c3Y0bXBqZHRxK0tNWnlhREx0OUts
+        UT09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURp
+        c3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExl
+        YXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5h
+        dmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48Qmxv
+        Yj48TmFtZT5henVyZS1zZm4tdGVzdC0xLTlmYjBkMjRmLWI2MmQtNDVlMi05
+        OWExLTljNjhkNTNiNjI4OC5qc29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0
+        LU1vZGlmaWVkPlRodSwgMTQgSmFuIDIwMTYgMTg6NTk6MDMgR01UPC9MYXN0
+        LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUQxNEM1NEMxNjhGPC9FdGFnPjxDb250
+        ZW50LUxlbmd0aD4xNDczPC9Db250ZW50LUxlbmd0aD48Q29udGVudC1UeXBl
+        PmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250
+        ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1N
+        RDU+OC9FUXhkc2FpV2xmUlR5RGY0K3VhQT09PC9Db250ZW50LU1ENT48Q2Fj
+        aGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBl
+        PkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9M
+        ZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+
+        PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT5henVyZS1zZm4tdGVz
+        dC0xLWIyZGUzNzRjLTUzN2EtNGUzYS1iNzA1LWYzODZlOGI5NzgzMy5qc29u
+        PC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPlRodSwgMTQgSmFu
+        IDIwMTYgMTg6NTc6NDIgR01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQz
+        MUQxNDk0RDBFNzk5PC9FdGFnPjxDb250ZW50LUxlbmd0aD45MjY8L0NvbnRl
+        bnQtTGVuZ3RoPjxDb250ZW50LVR5cGU+YXBwbGljYXRpb24vb2N0ZXQtc3Ry
+        ZWFtPC9Db250ZW50LVR5cGU+PENvbnRlbnQtRW5jb2RpbmcgLz48Q29udGVu
+        dC1MYW5ndWFnZSAvPjxDb250ZW50LU1ENT5zdjRtcGpkdHErS01aeWFETHQ5
+        S2xRPT08L0NvbnRlbnQtTUQ1PjxDYWNoZS1Db250cm9sIC8+PENvbnRlbnQt
+        RGlzcG9zaXRpb24gLz48QmxvYlR5cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48
+        TGVhc2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRl
+        PmF2YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxC
+        bG9iPjxOYW1lPmF6dXJlLXNmbi10ZXN0LTEtYzBmNGNlNzMtNDNmZi00NTNl
+        LTkyZjItODkxYjRhODZmODA1Lmpzb248L05hbWU+PFByb3BlcnRpZXM+PExh
+        c3QtTW9kaWZpZWQ+V2VkLCAxMyBKYW4gMjAxNiAyMzozNToxOSBHTVQ8L0xh
+        c3QtTW9kaWZpZWQ+PEV0YWc+MHg4RDMxQzcyMzJERjYzNEY8L0V0YWc+PENv
+        bnRlbnQtTGVuZ3RoPjE0NzE8L0NvbnRlbnQtTGVuZ3RoPjxDb250ZW50LVR5
+        cGU+YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtPC9Db250ZW50LVR5cGU+PENv
+        bnRlbnQtRW5jb2RpbmcgLz48Q29udGVudC1MYW5ndWFnZSAvPjxDb250ZW50
+        LU1ENT43c3Z2TE5UZkc3N0RLdFd0dU94QUt3PT08L0NvbnRlbnQtTUQ1PjxD
+        YWNoZS1Db250cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRpb24gLz48QmxvYlR5
+        cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+dW5sb2NrZWQ8
+        L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwvTGVhc2VTdGF0
+        ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1lPmF6dXJlLXNmbi10
+        ZXN0LTEtY2Q3MGZhMDktNDg0YS00MjdjLWI0OTUtYTJmMDI1NjNiNTNlLmpz
+        b248L05hbWU+PFByb3BlcnRpZXM+PExhc3QtTW9kaWZpZWQ+VGh1LCAxNCBK
+        YW4gMjAxNiAxOTowNzo1OCBHTVQ8L0xhc3QtTW9kaWZpZWQ+PEV0YWc+MHg4
+        RDMxRDE2MDQxQjVFMzI8L0V0YWc+PENvbnRlbnQtTGVuZ3RoPjkyNjwvQ29u
+        dGVudC1MZW5ndGg+PENvbnRlbnQtVHlwZT5hcHBsaWNhdGlvbi9vY3RldC1z
+        dHJlYW08L0NvbnRlbnQtVHlwZT48Q29udGVudC1FbmNvZGluZyAvPjxDb250
+        ZW50LUxhbmd1YWdlIC8+PENvbnRlbnQtTUQ1PnN2NG1wamR0cStLTVp5YURM
+        dDlLbFE9PTwvQ29udGVudC1NRDU+PENhY2hlLUNvbnRyb2wgLz48Q29udGVu
+        dC1EaXNwb3NpdGlvbiAvPjxCbG9iVHlwZT5CbG9ja0Jsb2I8L0Jsb2JUeXBl
+        PjxMZWFzZVN0YXR1cz51bmxvY2tlZDwvTGVhc2VTdGF0dXM+PExlYXNlU3Rh
+        dGU+YXZhaWxhYmxlPC9MZWFzZVN0YXRlPjwvUHJvcGVydGllcz48L0Jsb2I+
+        PEJsb2I+PE5hbWU+YXp1cmUtc2ZuLXRlc3QtMS1lMzhhMDZmMi1hODVmLTRl
+        ZTMtOWViNS0xNGI4NzJmZThlNDQuanNvbjwvTmFtZT48UHJvcGVydGllcz48
+        TGFzdC1Nb2RpZmllZD5UaHUsIDE0IEphbiAyMDE2IDE5OjA1OjAyIEdNVDwv
+        TGFzdC1Nb2RpZmllZD48RXRhZz4weDhEMzFEMTU5QjE2MEI5NjwvRXRhZz48
+        Q29udGVudC1MZW5ndGg+OTI2PC9Db250ZW50LUxlbmd0aD48Q29udGVudC1U
+        eXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxD
+        b250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVu
+        dC1NRDU+c3Y0bXBqZHRxK0tNWnlhREx0OUtsUT09PC9Db250ZW50LU1ENT48
+        Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JU
+        eXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2Vk
+        PC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3Rh
+        dGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT5henVyZS1zZm4t
+        dGVzdC0xLWY0YjZlZTZlLWYyZWEtNDlmNS05M2ViLWFiNGYwZTJlMjA2OC5q
+        c29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPlRodSwgMTQg
+        SmFuIDIwMTYgMTg6NDQ6MzkgR01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4
+        OEQzMUQxMkMyMEZEMjE2PC9FdGFnPjxDb250ZW50LUxlbmd0aD4xNDczPC9D
+        b250ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0
+        LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENv
+        bnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+OC9FUXhkc2FpV2xmUlR5
+        RGY0K3VhQT09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250
+        ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5
+        cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VT
+        dGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxv
+        Yj48QmxvYj48TmFtZT5henVyZS1zZm4tdGVzdC0xLWZmYmM5YzE2LTQyMzUt
+        NGM5My04MTFjLTBiZTkwZjVlN2U3NS5qc29uPC9OYW1lPjxQcm9wZXJ0aWVz
+        PjxMYXN0LU1vZGlmaWVkPlRodSwgMTQgSmFuIDIwMTYgMTY6MTk6MDggR01U
+        PC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUNGRTZFMjQ1NjFDPC9FdGFn
+        PjxDb250ZW50LUxlbmd0aD4xNDczPC9Db250ZW50LUxlbmd0aD48Q29udGVu
+        dC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBl
+        PjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29u
+        dGVudC1NRDU+OC9FUXhkc2FpV2xmUlR5RGY0K3VhQT09PC9Db250ZW50LU1E
+        NT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJs
+        b2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9j
+        a2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNl
+        U3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT5henVyZS1z
+        Zm4tdGVzdC0xMzAwN2Y5NS1iYjBjLTQ2N2QtYWI5MS03YWUwOTQ4MTNlZDEu
+        anNvbjwvTmFtZT48UHJvcGVydGllcz48TGFzdC1Nb2RpZmllZD5XZWQsIDEz
+        IEphbiAyMDE2IDIzOjMwOjE1IEdNVDwvTGFzdC1Nb2RpZmllZD48RXRhZz4w
+        eDhEMzFDNzE3RDZDMDY4NzwvRXRhZz48Q29udGVudC1MZW5ndGg+MTQ3Mjwv
+        Q29udGVudC1MZW5ndGg+PENvbnRlbnQtVHlwZT5hcHBsaWNhdGlvbi9vY3Rl
+        dC1zdHJlYW08L0NvbnRlbnQtVHlwZT48Q29udGVudC1FbmNvZGluZyAvPjxD
+        b250ZW50LUxhbmd1YWdlIC8+PENvbnRlbnQtTUQ1Pmp3di9PTmppWGVnRVpa
+        SEZDYXROMFE9PTwvQ29udGVudC1NRDU+PENhY2hlLUNvbnRyb2wgLz48Q29u
+        dGVudC1EaXNwb3NpdGlvbiAvPjxCbG9iVHlwZT5CbG9ja0Jsb2I8L0Jsb2JU
+        eXBlPjxMZWFzZVN0YXR1cz51bmxvY2tlZDwvTGVhc2VTdGF0dXM+PExlYXNl
+        U3RhdGU+YXZhaWxhYmxlPC9MZWFzZVN0YXRlPjwvUHJvcGVydGllcz48L0Js
+        b2I+PEJsb2I+PE5hbWU+YXp1cmUtc2ZuLXRlc3QtMi0wYjYyMzRhZS1iZjU3
+        LTQ5MTMtYTJkMy1jMTg4YzhmZjFiMzMuanNvbjwvTmFtZT48UHJvcGVydGll
+        cz48TGFzdC1Nb2RpZmllZD5UaHUsIDE0IEphbiAyMDE2IDE5OjIwOjAzIEdN
+        VDwvTGFzdC1Nb2RpZmllZD48RXRhZz4weDhEMzFEMTdCNDY3REE3QTwvRXRh
+        Zz48Q29udGVudC1MZW5ndGg+MTQ3MzwvQ29udGVudC1MZW5ndGg+PENvbnRl
+        bnQtVHlwZT5hcHBsaWNhdGlvbi9vY3RldC1zdHJlYW08L0NvbnRlbnQtVHlw
+        ZT48Q29udGVudC1FbmNvZGluZyAvPjxDb250ZW50LUxhbmd1YWdlIC8+PENv
+        bnRlbnQtTUQ1PjgvRVF4ZHNhaVdsZlJUeURmNCt1YUE9PTwvQ29udGVudC1N
+        RDU+PENhY2hlLUNvbnRyb2wgLz48Q29udGVudC1EaXNwb3NpdGlvbiAvPjxC
+        bG9iVHlwZT5CbG9ja0Jsb2I8L0Jsb2JUeXBlPjxMZWFzZVN0YXR1cz51bmxv
+        Y2tlZDwvTGVhc2VTdGF0dXM+PExlYXNlU3RhdGU+YXZhaWxhYmxlPC9MZWFz
+        ZVN0YXRlPjwvUHJvcGVydGllcz48L0Jsb2I+PEJsb2I+PE5hbWU+YXp1cmUt
+        c2ZuLXRlc3QtMi02YjQ4NmUyOC1iNDczLTQ1NWEtYTBlZS1kYzFiOGZmNjdj
+        ZmYuanNvbjwvTmFtZT48UHJvcGVydGllcz48TGFzdC1Nb2RpZmllZD5UaHUs
+        IDE0IEphbiAyMDE2IDE5OjA5OjM3IEdNVDwvTGFzdC1Nb2RpZmllZD48RXRh
+        Zz4weDhEMzFEMTYzRjUxOTg2RDwvRXRhZz48Q29udGVudC1MZW5ndGg+OTI2
+        PC9Db250ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29j
+        dGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+
+        PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+c3Y0bXBqZHRxK0tN
+        WnlhREx0OUtsUT09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxD
+        b250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxv
+        YlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVh
+        c2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwv
+        QmxvYj48QmxvYj48TmFtZT5henVyZS1zZm4tdGVzdC0yLWEwNmVkODQ1LWUy
+        OTQtNDdiMi04OTRhLTI5MDJiZGU0OTc4OC5qc29uPC9OYW1lPjxQcm9wZXJ0
+        aWVzPjxMYXN0LU1vZGlmaWVkPlRodSwgMTQgSmFuIDIwMTYgMTg6NDg6Mzgg
+        R01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUQxMzUxMDAzMzUwPC9F
+        dGFnPjxDb250ZW50LUxlbmd0aD4xNDczPC9Db250ZW50LUxlbmd0aD48Q29u
+        dGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1U
+        eXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48
+        Q29udGVudC1NRDU+OC9FUXhkc2FpV2xmUlR5RGY0K3VhQT09PC9Db250ZW50
+        LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+
+        PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVu
+        bG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xl
+        YXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT5henVy
+        ZS1zZm4tdGVzdC0yLWU3YjczZmY2LTIyNTctNDcwOS1hYjU3LWFlMTdlZjhk
+        NTk0ZS5qc29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPlRo
+        dSwgMTQgSmFuIDIwMTYgMTk6MTA6NDYgR01UPC9MYXN0LU1vZGlmaWVkPjxF
+        dGFnPjB4OEQzMUQxNjY4NEJERDJGPC9FdGFnPjxDb250ZW50LUxlbmd0aD4x
+        NDczPC9Db250ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9u
+        L29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5n
+        IC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+OC9FUXhkc2Fp
+        V2xmUlR5RGY0K3VhQT09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAv
+        PjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwv
+        QmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48
+        TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVz
+        PjwvQmxvYj48QmxvYj48TmFtZT5henVyZS1zZm4tdGVzdC0yLWVlODY3MGY2
+        LWNjNzUtNDA5Yy05NzNjLTk4MWY5ZjRkOGY2Ny5qc29uPC9OYW1lPjxQcm9w
+        ZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPlRodSwgMTQgSmFuIDIwMTYgMTg6NTA6
+        NDAgR01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUQxMzk5NDM5OUND
+        PC9FdGFnPjxDb250ZW50LUxlbmd0aD45MjY8L0NvbnRlbnQtTGVuZ3RoPjxD
+        b250ZW50LVR5cGU+YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtPC9Db250ZW50
+        LVR5cGU+PENvbnRlbnQtRW5jb2RpbmcgLz48Q29udGVudC1MYW5ndWFnZSAv
+        PjxDb250ZW50LU1ENT5zdjRtcGpkdHErS01aeWFETHQ5S2xRPT08L0NvbnRl
+        bnQtTUQ1PjxDYWNoZS1Db250cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRpb24g
+        Lz48QmxvYlR5cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+
+        dW5sb2NrZWQ8L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwv
+        TGVhc2VTdGF0ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1lPmF6
+        dXJlLXNmbi10ZXN0LTMtMDE0NDQ2YzMtZGY3Zi00YTIwLWFiZDAtYmIxZjVm
+        ZWQ5MWIzLmpzb248L05hbWU+PFByb3BlcnRpZXM+PExhc3QtTW9kaWZpZWQ+
+        VGh1LCAxNCBKYW4gMjAxNiAxNjowNTo0NCBHTVQ8L0xhc3QtTW9kaWZpZWQ+
+        PEV0YWc+MHg4RDMxQ0ZDOEYyRTgwNEQ8L0V0YWc+PENvbnRlbnQtTGVuZ3Ro
+        PjE0NzQ8L0NvbnRlbnQtTGVuZ3RoPjxDb250ZW50LVR5cGU+YXBwbGljYXRp
+        b24vb2N0ZXQtc3RyZWFtPC9Db250ZW50LVR5cGU+PENvbnRlbnQtRW5jb2Rp
+        bmcgLz48Q29udGVudC1MYW5ndWFnZSAvPjxDb250ZW50LU1ENT5Uc1hjVEVi
+        VUg0emJkdXdScVhNU0N3PT08L0NvbnRlbnQtTUQ1PjxDYWNoZS1Db250cm9s
+        IC8+PENvbnRlbnQtRGlzcG9zaXRpb24gLz48QmxvYlR5cGU+QmxvY2tCbG9i
+        PC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVz
+        PjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRp
+        ZXM+PC9CbG9iPjxCbG9iPjxOYW1lPmF6dXJlLXNmbi10ZXN0LTMtMGIwN2Rm
+        NTYtZTUzYy00ODM5LWJmZTAtMjllM2RlNWVhMzUwLmpzb248L05hbWU+PFBy
+        b3BlcnRpZXM+PExhc3QtTW9kaWZpZWQ+VGh1LCAxNCBKYW4gMjAxNiAxNToy
+        OTozNiBHTVQ8L0xhc3QtTW9kaWZpZWQ+PEV0YWc+MHg4RDMxQ0Y3ODI3RDU5
+        ODY8L0V0YWc+PENvbnRlbnQtTGVuZ3RoPjE0NzQ8L0NvbnRlbnQtTGVuZ3Ro
+        PjxDb250ZW50LVR5cGU+YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtPC9Db250
+        ZW50LVR5cGU+PENvbnRlbnQtRW5jb2RpbmcgLz48Q29udGVudC1MYW5ndWFn
+        ZSAvPjxDb250ZW50LU1ENT5Uc1hjVEViVUg0emJkdXdScVhNU0N3PT08L0Nv
+        bnRlbnQtTUQ1PjxDYWNoZS1Db250cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRp
+        b24gLz48QmxvYlR5cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0
+        dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJs
+        ZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1l
+        PmF6dXJlLXNmbi10ZXN0LTMtMGRhYWI0MjAtM2I3Ni00ZTI2LWE0NTgtYmFm
+        YWUwOGFiMTE3Lmpzb248L05hbWU+PFByb3BlcnRpZXM+PExhc3QtTW9kaWZp
+        ZWQ+VGh1LCAxNCBKYW4gMjAxNiAxNTo1NzoyOCBHTVQ8L0xhc3QtTW9kaWZp
+        ZWQ+PEV0YWc+MHg4RDMxQ0ZCNjc1MzRCMDA8L0V0YWc+PENvbnRlbnQtTGVu
+        Z3RoPjE0NzQ8L0NvbnRlbnQtTGVuZ3RoPjxDb250ZW50LVR5cGU+YXBwbGlj
+        YXRpb24vb2N0ZXQtc3RyZWFtPC9Db250ZW50LVR5cGU+PENvbnRlbnQtRW5j
+        b2RpbmcgLz48Q29udGVudC1MYW5ndWFnZSAvPjxDb250ZW50LU1ENT5Uc1hj
+        VEViVUg0emJkdXdScVhNU0N3PT08L0NvbnRlbnQtTUQ1PjxDYWNoZS1Db250
+        cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRpb24gLz48QmxvYlR5cGU+QmxvY2tC
+        bG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3Rh
+        dHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1Byb3Bl
+        cnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1lPmF6dXJlLXNmbi10ZXN0LTMtMjRh
+        Y2YzYjQtOWQzZi00ZGEwLWI3NzAtMThiNjg2MDRlOGI3Lmpzb248L05hbWU+
+        PFByb3BlcnRpZXM+PExhc3QtTW9kaWZpZWQ+VGh1LCAxNCBKYW4gMjAxNiAx
+        NjoxMTowNiBHTVQ8L0xhc3QtTW9kaWZpZWQ+PEV0YWc+MHg4RDMxQ0ZENEVE
+        NEI2QjU8L0V0YWc+PENvbnRlbnQtTGVuZ3RoPjE0NzQ8L0NvbnRlbnQtTGVu
+        Z3RoPjxDb250ZW50LVR5cGU+YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtPC9D
+        b250ZW50LVR5cGU+PENvbnRlbnQtRW5jb2RpbmcgLz48Q29udGVudC1MYW5n
+        dWFnZSAvPjxDb250ZW50LU1ENT5Uc1hjVEViVUg0emJkdXdScVhNU0N3PT08
+        L0NvbnRlbnQtTUQ1PjxDYWNoZS1Db250cm9sIC8+PENvbnRlbnQtRGlzcG9z
+        aXRpb24gLz48QmxvYlR5cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVhc2VT
+        dGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2YWls
+        YWJsZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9iPjxO
+        YW1lPmF6dXJlLXNmbi10ZXN0LTMtNjY2ZDNkYjktYmU5My00NDA5LWI4Yzct
+        NjM5MTcxMTA1YzM5Lmpzb248L05hbWU+PFByb3BlcnRpZXM+PExhc3QtTW9k
+        aWZpZWQ+VGh1LCAxNCBKYW4gMjAxNiAxNjowNDoxMyBHTVQ8L0xhc3QtTW9k
+        aWZpZWQ+PEV0YWc+MHg4RDMxQ0ZDNThERTgzMDc8L0V0YWc+PENvbnRlbnQt
+        TGVuZ3RoPjE0NzQ8L0NvbnRlbnQtTGVuZ3RoPjxDb250ZW50LVR5cGU+YXBw
+        bGljYXRpb24vb2N0ZXQtc3RyZWFtPC9Db250ZW50LVR5cGU+PENvbnRlbnQt
+        RW5jb2RpbmcgLz48Q29udGVudC1MYW5ndWFnZSAvPjxDb250ZW50LU1ENT5U
+        c1hjVEViVUg0emJkdXdScVhNU0N3PT08L0NvbnRlbnQtTUQ1PjxDYWNoZS1D
+        b250cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRpb24gLz48QmxvYlR5cGU+Qmxv
+        Y2tCbG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNl
+        U3RhdHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1By
+        b3BlcnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1lPmF6dXJlLXNmbi10ZXN0LTMt
+        ZDE0NmIyNzYtNjc0ZS00NDA2LTkyODAtZGQ5OTJkMDEyN2NlLmpzb248L05h
+        bWU+PFByb3BlcnRpZXM+PExhc3QtTW9kaWZpZWQ+V2VkLCAxMyBKYW4gMjAx
+        NiAyMzo0MDo0MiBHTVQ8L0xhc3QtTW9kaWZpZWQ+PEV0YWc+MHg4RDMxQzcy
+        RjM1QTI4Nzg8L0V0YWc+PENvbnRlbnQtTGVuZ3RoPjE0NzM8L0NvbnRlbnQt
+        TGVuZ3RoPjxDb250ZW50LVR5cGU+YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFt
+        PC9Db250ZW50LVR5cGU+PENvbnRlbnQtRW5jb2RpbmcgLz48Q29udGVudC1M
+        YW5ndWFnZSAvPjxDb250ZW50LU1ENT44L0VReGRzYWlXbGZSVHlEZjQrdWFB
+        PT08L0NvbnRlbnQtTUQ1PjxDYWNoZS1Db250cm9sIC8+PENvbnRlbnQtRGlz
+        cG9zaXRpb24gLz48QmxvYlR5cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVh
+        c2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2
+        YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9i
+        PjxOYW1lPmF6dXJlLXNmbi10ZXN0LTMtZDYwZTdhYjItYWYwYS00MDk1LTgy
+        MTktYTgyYzFmN2VhNGU1Lmpzb248L05hbWU+PFByb3BlcnRpZXM+PExhc3Qt
+        TW9kaWZpZWQ+VGh1LCAxNCBKYW4gMjAxNiAxNjoxNToyOSBHTVQ8L0xhc3Qt
+        TW9kaWZpZWQ+PEV0YWc+MHg4RDMxQ0ZERUJFRDQ3ODQ8L0V0YWc+PENvbnRl
+        bnQtTGVuZ3RoPjE0NzM8L0NvbnRlbnQtTGVuZ3RoPjxDb250ZW50LVR5cGU+
+        YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtPC9Db250ZW50LVR5cGU+PENvbnRl
+        bnQtRW5jb2RpbmcgLz48Q29udGVudC1MYW5ndWFnZSAvPjxDb250ZW50LU1E
+        NT44L0VReGRzYWlXbGZSVHlEZjQrdWFBPT08L0NvbnRlbnQtTUQ1PjxDYWNo
+        ZS1Db250cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRpb24gLz48QmxvYlR5cGU+
+        QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+dW5sb2NrZWQ8L0xl
+        YXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwvTGVhc2VTdGF0ZT48
+        L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1lPmF6dXJlLXNmbi10ZXN0
+        LTMtZGZmMTU1NzUtNjZlNS00M2RiLThmNmItM2ZiNTQzODM4YzNjLmpzb248
+        L05hbWU+PFByb3BlcnRpZXM+PExhc3QtTW9kaWZpZWQ+VGh1LCAxNCBKYW4g
+        MjAxNiAxNTo1MzoxOSBHTVQ8L0xhc3QtTW9kaWZpZWQ+PEV0YWc+MHg4RDMx
+        Q0ZBRDJGMTYyMUM8L0V0YWc+PENvbnRlbnQtTGVuZ3RoPjE0NzQ8L0NvbnRl
+        bnQtTGVuZ3RoPjxDb250ZW50LVR5cGU+YXBwbGljYXRpb24vb2N0ZXQtc3Ry
+        ZWFtPC9Db250ZW50LVR5cGU+PENvbnRlbnQtRW5jb2RpbmcgLz48Q29udGVu
+        dC1MYW5ndWFnZSAvPjxDb250ZW50LU1ENT5Uc1hjVEViVUg0emJkdXdScVhN
+        U0N3PT08L0NvbnRlbnQtTUQ1PjxDYWNoZS1Db250cm9sIC8+PENvbnRlbnQt
+        RGlzcG9zaXRpb24gLz48QmxvYlR5cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48
+        TGVhc2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRl
+        PmF2YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxC
+        bG9iPjxOYW1lPmF6dXJlLXNmbi10ZXN0LTMtZTQ2YTBiMGQtZDc3Mi00NjE0
+        LTg0ZGUtOTI2YzkyNjc2MmIzLmpzb248L05hbWU+PFByb3BlcnRpZXM+PExh
+        c3QtTW9kaWZpZWQ+V2VkLCAxMyBKYW4gMjAxNiAyMzo0MTo0NCBHTVQ8L0xh
+        c3QtTW9kaWZpZWQ+PEV0YWc+MHg4RDMxQzczMTg5QTRDNzM8L0V0YWc+PENv
+        bnRlbnQtTGVuZ3RoPjE0NzM8L0NvbnRlbnQtTGVuZ3RoPjxDb250ZW50LVR5
+        cGU+YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtPC9Db250ZW50LVR5cGU+PENv
+        bnRlbnQtRW5jb2RpbmcgLz48Q29udGVudC1MYW5ndWFnZSAvPjxDb250ZW50
+        LU1ENT44L0VReGRzYWlXbGZSVHlEZjQrdWFBPT08L0NvbnRlbnQtTUQ1PjxD
+        YWNoZS1Db250cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRpb24gLz48QmxvYlR5
+        cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+dW5sb2NrZWQ8
+        L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwvTGVhc2VTdGF0
+        ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1lPm1pYXNtYS10ZXN0
+        LXN0YWNrLTItNzcyNTliN2UtZTEwOC00ZWZjLTkwNTctNzhlY2U1NmZjZWE2
+        Lmpzb248L05hbWU+PFByb3BlcnRpZXM+PExhc3QtTW9kaWZpZWQ+RnJpLCAx
+        NSBKYW4gMjAxNiAwMjoxNDo1MiBHTVQ8L0xhc3QtTW9kaWZpZWQ+PEV0YWc+
+        MHg4RDMxRDUxQTc1RjMxQjE8L0V0YWc+PENvbnRlbnQtTGVuZ3RoPjY4OTwv
+        Q29udGVudC1MZW5ndGg+PENvbnRlbnQtVHlwZT5hcHBsaWNhdGlvbi9vY3Rl
+        dC1zdHJlYW08L0NvbnRlbnQtVHlwZT48Q29udGVudC1FbmNvZGluZyAvPjxD
+        b250ZW50LUxhbmd1YWdlIC8+PENvbnRlbnQtTUQ1PjYrK2N1a3lXMVIyMzdP
+        WUxqMGRoUmc9PTwvQ29udGVudC1NRDU+PENhY2hlLUNvbnRyb2wgLz48Q29u
+        dGVudC1EaXNwb3NpdGlvbiAvPjxCbG9iVHlwZT5CbG9ja0Jsb2I8L0Jsb2JU
+        eXBlPjxMZWFzZVN0YXR1cz51bmxvY2tlZDwvTGVhc2VTdGF0dXM+PExlYXNl
+        U3RhdGU+YXZhaWxhYmxlPC9MZWFzZVN0YXRlPjwvUHJvcGVydGllcz48L0Js
+        b2I+PEJsb2I+PE5hbWU+bWlhc21hLXRlc3Qtc3RhY2stMi1iNDBjY2IyNC1l
+        ZjVkLTRkYjYtYjU1Yy05Yzg3MzdkZDhmMTcuanNvbjwvTmFtZT48UHJvcGVy
+        dGllcz48TGFzdC1Nb2RpZmllZD5GcmksIDE1IEphbiAyMDE2IDAyOjA2OjM1
+        IEdNVDwvTGFzdC1Nb2RpZmllZD48RXRhZz4weDhEMzFENTA3RjQwQzhBMzwv
+        RXRhZz48Q29udGVudC1MZW5ndGg+Njg5PC9Db250ZW50LUxlbmd0aD48Q29u
+        dGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1U
+        eXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48
+        Q29udGVudC1NRDU+NisrY3VreVcxUjIzN09ZTGowZGhSZz09PC9Db250ZW50
+        LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+
+        PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVu
+        bG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xl
+        YXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT5taWFz
+        bWEtdGVzdC1zdGFjay0yLWMxYzkzNWVhLWEwNjctNDVhNy1iOWQ3LTc2ZmUy
+        MTM0ODA1Zi5qc29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVk
+        PkZyaSwgMTUgSmFuIDIwMTYgMDI6MTk6MjkgR01UPC9MYXN0LU1vZGlmaWVk
+        PjxFdGFnPjB4OEQzMUQ1MjRDQTBBRTIyPC9FdGFnPjxDb250ZW50LUxlbmd0
+        aD42ODk8L0NvbnRlbnQtTGVuZ3RoPjxDb250ZW50LVR5cGU+YXBwbGljYXRp
+        b24vb2N0ZXQtc3RyZWFtPC9Db250ZW50LVR5cGU+PENvbnRlbnQtRW5jb2Rp
+        bmcgLz48Q29udGVudC1MYW5ndWFnZSAvPjxDb250ZW50LU1ENT42KytjdWt5
+        VzFSMjM3T1lMajBkaFJnPT08L0NvbnRlbnQtTUQ1PjxDYWNoZS1Db250cm9s
+        IC8+PENvbnRlbnQtRGlzcG9zaXRpb24gLz48QmxvYlR5cGU+QmxvY2tCbG9i
+        PC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVz
+        PjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRp
+        ZXM+PC9CbG9iPjxCbG9iPjxOYW1lPm1pYXNtYS10ZXN0LXN0YWNrLTQ4YTJi
+        NjdjLTViNDAtNDViYS05M2RhLTNlMmQ5OTk2N2QxOC5qc29uPC9OYW1lPjxQ
+        cm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPkZyaSwgMTUgSmFuIDIwMTYgMDI6
+        MTk6MjcgR01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUQ1MjRCMjI4
+        QjNGPC9FdGFnPjxDb250ZW50LUxlbmd0aD42ODk8L0NvbnRlbnQtTGVuZ3Ro
+        PjxDb250ZW50LVR5cGU+YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtPC9Db250
+        ZW50LVR5cGU+PENvbnRlbnQtRW5jb2RpbmcgLz48Q29udGVudC1MYW5ndWFn
+        ZSAvPjxDb250ZW50LU1ENT42KytjdWt5VzFSMjM3T1lMajBkaFJnPT08L0Nv
+        bnRlbnQtTUQ1PjxDYWNoZS1Db250cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRp
+        b24gLz48QmxvYlR5cGU+QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0
+        dXM+dW5sb2NrZWQ8L0xlYXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJs
+        ZTwvTGVhc2VTdGF0ZT48L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1l
+        Pm1pYXNtYS10ZXN0LXN0YWNrLTUyMTUwYmY4LTcwZDMtNGU0MS1iMDAzLTVl
+        NzAxMWYzMWRmZi5qc29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlm
+        aWVkPkZyaSwgMTUgSmFuIDIwMTYgMDI6MTQ6NDggR01UPC9MYXN0LU1vZGlm
+        aWVkPjxFdGFnPjB4OEQzMUQ1MUE0OUY4RTY0PC9FdGFnPjxDb250ZW50LUxl
+        bmd0aD42ODk8L0NvbnRlbnQtTGVuZ3RoPjxDb250ZW50LVR5cGU+YXBwbGlj
+        YXRpb24vb2N0ZXQtc3RyZWFtPC9Db250ZW50LVR5cGU+PENvbnRlbnQtRW5j
+        b2RpbmcgLz48Q29udGVudC1MYW5ndWFnZSAvPjxDb250ZW50LU1ENT42Kytj
+        dWt5VzFSMjM3T1lMajBkaFJnPT08L0NvbnRlbnQtTUQ1PjxDYWNoZS1Db250
+        cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRpb24gLz48QmxvYlR5cGU+QmxvY2tC
+        bG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+dW5sb2NrZWQ8L0xlYXNlU3Rh
+        dHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwvTGVhc2VTdGF0ZT48L1Byb3Bl
+        cnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1lPm1pYXNtYS10ZXN0LXN0YWNrLThi
+        YjM4MDk3NGE3MWQxOGI5YmFlNzY2YmVlZjk1ZjA2ZmNlOTMwZjNmOTc5ZTE5
+        ZjliMjU2YWRjY2ZiYTI4ZWYuanNvbjwvTmFtZT48UHJvcGVydGllcz48TGFz
+        dC1Nb2RpZmllZD5GcmksIDE1IEphbiAyMDE2IDIxOjQzOjAwIEdNVDwvTGFz
+        dC1Nb2RpZmllZD48RXRhZz4weDhEMzFERjRENkIxOUVDRDwvRXRhZz48Q29u
+        dGVudC1MZW5ndGg+Njg5PC9Db250ZW50LUxlbmd0aD48Q29udGVudC1UeXBl
+        PmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250
+        ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1N
+        RDU+NisrY3VreVcxUjIzN09ZTGowZGhSZz09PC9Db250ZW50LU1ENT48Q2Fj
+        aGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBl
+        PkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9M
+        ZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+
+        PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT5taWFzbWEtdGVzdC1z
+        dGFjay1mOWY1MGJiNS1lNjEzLTQzNWYtYTZkMC05Njc0ZTJkZGU4YTYuanNv
+        bjwvTmFtZT48UHJvcGVydGllcz48TGFzdC1Nb2RpZmllZD5GcmksIDE1IEph
+        biAyMDE2IDAyOjA2OjQ0IEdNVDwvTGFzdC1Nb2RpZmllZD48RXRhZz4weDhE
+        MzFENTA4NDRGN0VFRTwvRXRhZz48Q29udGVudC1MZW5ndGg+Njg5PC9Db250
+        ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0
+        cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRl
+        bnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+NisrY3VreVcxUjIzN09ZTGow
+        ZGhSZz09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50
+        LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+
+        PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0
+        ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48
+        QmxvYj48TmFtZT5wYXJhbS10ZXN0LWM4ZmI0OGIzMzIyYTU4OGRkMmFmYzg2
+        NTg4YzRhMzlmNGQxNTUyYTY2YmFkNzFkYzMxZmI0NzkxOGQwNDk0MTAuanNv
+        bjwvTmFtZT48UHJvcGVydGllcz48TGFzdC1Nb2RpZmllZD5GcmksIDE1IEph
+        biAyMDE2IDIwOjQwOjQ0IEdNVDwvTGFzdC1Nb2RpZmllZD48RXRhZz4weDhE
+        MzFERUMyNDEzNzNDOTwvRXRhZz48Q29udGVudC1MZW5ndGg+Njg5PC9Db250
+        ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0
+        cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRl
+        bnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+NisrY3VreVcxUjIzN09ZTGow
+        ZGhSZz09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50
+        LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+
+        PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0
+        ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48
+        QmxvYj48TmFtZT5wYXJhbS10ZXN0LWNhYzlhZWEwMjNkN2I4NGMyNmQ4Yzkx
+        Y2IxMGZmN2ExZWI4MmU4ZTM3MDJjNjZlMGQzNmU5YWQ0NGY3ZDFjODUuanNv
+        bjwvTmFtZT48UHJvcGVydGllcz48TGFzdC1Nb2RpZmllZD5GcmksIDE1IEph
+        biAyMDE2IDIwOjQxOjAzIEdNVDwvTGFzdC1Nb2RpZmllZD48RXRhZz4weDhE
+        MzFERUMyRkJFRkU4ODwvRXRhZz48Q29udGVudC1MZW5ndGg+Njg5PC9Db250
+        ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0
+        cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRl
+        bnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+NisrY3VreVcxUjIzN09ZTGow
+        ZGhSZz09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50
+        LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+
+        PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0
+        ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48
+        QmxvYj48TmFtZT50ZXN0LXN0YWNrLTFlMTkzZjk3LWEyNzQtNDViOC1hYTdi
+        LTkzOTM3NjYxZDI3NC5qc29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1v
+        ZGlmaWVkPk1vbiwgMTEgSmFuIDIwMTYgMjE6MzY6NTQgR01UPC9MYXN0LU1v
+        ZGlmaWVkPjxFdGFnPjB4OEQzMUFDRjUzNEMwQ0E3PC9FdGFnPjxDb250ZW50
+        LUxlbmd0aD4xNjg2PC9Db250ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFw
+        cGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50
+        LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+
+        SkVvTFNjWEV6VWIrU1BJemtBYnplZz09PC9Db250ZW50LU1ENT48Q2FjaGUt
+        Q29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJs
+        b2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFz
+        ZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Q
+        cm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT50ZXN0LXN0YWNrLTRkZGQx
+        YTYxLTEwNjQtNDdiYi04YjI0LTk4ZjJmMGJjYjY2NC5qc29uPC9OYW1lPjxQ
+        cm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPk1vbiwgMTEgSmFuIDIwMTYgMjA6
+        Mzg6NTEgR01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUFDNzM2RDQ2
+        RTJFPC9FdGFnPjxDb250ZW50LUxlbmd0aD4xNjg2PC9Db250ZW50LUxlbmd0
+        aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29u
+        dGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3Vh
+        Z2UgLz48Q29udGVudC1NRDU+SkVvTFNjWEV6VWIrU1BJemtBYnplZz09PC9D
+        b250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0
+        aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3Rh
+        dHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFi
+        bGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFt
+        ZT50ZXN0LXN0YWNrLTc4ZjNmN2RlLTc3MzEtNGExNS04NjJlLWNhNzg4NWFj
+        ZjJlMC5qc29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPk1v
+        biwgMTEgSmFuIDIwMTYgMjE6Mzc6MjEgR01UPC9MYXN0LU1vZGlmaWVkPjxF
+        dGFnPjB4OEQzMUFDRjYzMkFCNDg3PC9FdGFnPjxDb250ZW50LUxlbmd0aD4x
+        Njg2PC9Db250ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9u
+        L29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5n
+        IC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+SkVvTFNjWEV6
+        VWIrU1BJemtBYnplZz09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAv
+        PjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwv
+        QmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48
+        TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVz
+        PjwvQmxvYj48QmxvYj48TmFtZT50ZXN0LXN0YWNrLWEyODg4Y2U0LWQ5NWIt
+        NDBhOS1hYmVlLTQwMzlmZGU2MjdiNC5qc29uPC9OYW1lPjxQcm9wZXJ0aWVz
+        PjxMYXN0LU1vZGlmaWVkPk1vbiwgMTEgSmFuIDIwMTYgMjA6MzU6MjMgR01U
+        PC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUFDNkJBRUZBQkRFPC9FdGFn
+        PjxDb250ZW50LUxlbmd0aD4xNjg2PC9Db250ZW50LUxlbmd0aD48Q29udGVu
+        dC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBl
+        PjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29u
+        dGVudC1NRDU+SkVvTFNjWEV6VWIrU1BJemtBYnplZz09PC9Db250ZW50LU1E
+        NT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJs
+        b2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9j
+        a2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNl
+        U3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT50ZXN0LXN0
+        YWNrLWMxNDRmYzNmLTU4YjUtNGRjOC1iNzY3LTY5YjgzMTU1OTM3ZS5qc29u
+        PC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPk1vbiwgMTEgSmFu
+        IDIwMTYgMjA6MzU6NDkgR01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQz
+        MUFDNkNBQzA3QUM4PC9FdGFnPjxDb250ZW50LUxlbmd0aD4xNjg2PC9Db250
+        ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0
+        cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRl
+        bnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+SkVvTFNjWEV6VWIrU1BJemtB
+        YnplZz09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50
+        LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+
+        PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0
+        ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48
+        QmxvYj48TmFtZT50ZXN0LXN0YWNrLWYyM2QyMzE4LWM2ZGQtNDk4NC1iN2Zi
+        LWFhYTMwZDA5MDE2Zi5qc29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1v
+        ZGlmaWVkPk1vbiwgMTEgSmFuIDIwMTYgMjA6Mzc6MjMgR01UPC9MYXN0LU1v
+        ZGlmaWVkPjxFdGFnPjB4OEQzMUFDNzAyRDdCNDdCPC9FdGFnPjxDb250ZW50
+        LUxlbmd0aD4xNjg2PC9Db250ZW50LUxlbmd0aD48Q29udGVudC1UeXBlPmFw
+        cGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250ZW50
+        LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+
+        SkVvTFNjWEV6VWIrU1BJemtBYnplZz09PC9Db250ZW50LU1ENT48Q2FjaGUt
+        Q29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJs
+        b2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9MZWFz
+        ZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Q
+        cm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT50ZXN0LXN0YWNrLXNmbi0y
+        LWUyN2I2MTQ4LWIzNzgtNGIzYS1iNjM1LTg3YzE2OGE5OWFmMC5qc29uPC9O
+        YW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPldlZCwgMTMgSmFuIDIw
+        MTYgMjM6MjU6MDQgR01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUM3
+        MEM0N0E0MzY1PC9FdGFnPjxDb250ZW50LUxlbmd0aD4xNDM3PC9Db250ZW50
+        LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVh
+        bTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQt
+        TGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+bDUwRmIzaEExZU5TNXBIS1JsQk5l
+        dz09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURp
+        c3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExl
+        YXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5h
+        dmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48Qmxv
+        Yj48TmFtZT50ZXN0LXN0YWNrLXNmbi0zLTdlNDczNGY0LWM0OTItNDA0OS1i
+        YzE2LTUwZjY1NjE4NzgyNS5qc29uPC9OYW1lPjxQcm9wZXJ0aWVzPjxMYXN0
+        LU1vZGlmaWVkPldlZCwgMTMgSmFuIDIwMTYgMjM6Mjc6NTMgR01UPC9MYXN0
+        LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUM3MTI4RDQ0NzUyPC9FdGFnPjxDb250
+        ZW50LUxlbmd0aD4xNDY4PC9Db250ZW50LUxlbmd0aD48Q29udGVudC1UeXBl
+        PmFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbTwvQ29udGVudC1UeXBlPjxDb250
+        ZW50LUVuY29kaW5nIC8+PENvbnRlbnQtTGFuZ3VhZ2UgLz48Q29udGVudC1N
+        RDU+SC9yQUVMWmRkekJ0Q0xUWkUwbWNzUT09PC9Db250ZW50LU1ENT48Q2Fj
+        aGUtQ29udHJvbCAvPjxDb250ZW50LURpc3Bvc2l0aW9uIC8+PEJsb2JUeXBl
+        PkJsb2NrQmxvYjwvQmxvYlR5cGU+PExlYXNlU3RhdHVzPnVubG9ja2VkPC9M
+        ZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5hdmFpbGFibGU8L0xlYXNlU3RhdGU+
+        PC9Qcm9wZXJ0aWVzPjwvQmxvYj48QmxvYj48TmFtZT50ZXN0LXN0YWNrLXNm
+        bi00NWM0NDE3YS0wYWRjLTQ4ODAtOTQxNS1hNGIzZTFjZWRhOTIuanNvbjwv
+        TmFtZT48UHJvcGVydGllcz48TGFzdC1Nb2RpZmllZD5XZWQsIDEzIEphbiAy
+        MDE2IDIzOjEzOjM0IEdNVDwvTGFzdC1Nb2RpZmllZD48RXRhZz4weDhEMzFD
+        NkYyOTA0QTlGRDwvRXRhZz48Q29udGVudC1MZW5ndGg+MTUxNzwvQ29udGVu
+        dC1MZW5ndGg+PENvbnRlbnQtVHlwZT5hcHBsaWNhdGlvbi9vY3RldC1zdHJl
+        YW08L0NvbnRlbnQtVHlwZT48Q29udGVudC1FbmNvZGluZyAvPjxDb250ZW50
+        LUxhbmd1YWdlIC8+PENvbnRlbnQtTUQ1Pi9SQnJVVG5mcWErckxRYjdBRnQv
+        WEE9PTwvQ29udGVudC1NRDU+PENhY2hlLUNvbnRyb2wgLz48Q29udGVudC1E
+        aXNwb3NpdGlvbiAvPjxCbG9iVHlwZT5CbG9ja0Jsb2I8L0Jsb2JUeXBlPjxM
+        ZWFzZVN0YXR1cz51bmxvY2tlZDwvTGVhc2VTdGF0dXM+PExlYXNlU3RhdGU+
+        YXZhaWxhYmxlPC9MZWFzZVN0YXRlPjwvUHJvcGVydGllcz48L0Jsb2I+PEJs
+        b2I+PE5hbWU+dGVzdC1zdGFjay1zZm4tNTA4Zjc1OGUtMGE4ZS00ZDRkLWI1
+        MGQtNmQxZWRlMjliNTgwLmpzb248L05hbWU+PFByb3BlcnRpZXM+PExhc3Qt
+        TW9kaWZpZWQ+V2VkLCAxMyBKYW4gMjAxNiAyMzoxMTozOCBHTVQ8L0xhc3Qt
+        TW9kaWZpZWQ+PEV0YWc+MHg4RDMxQzZFRTNBQTI3RjM8L0V0YWc+PENvbnRl
+        bnQtTGVuZ3RoPjE1MTc8L0NvbnRlbnQtTGVuZ3RoPjxDb250ZW50LVR5cGU+
+        YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtPC9Db250ZW50LVR5cGU+PENvbnRl
+        bnQtRW5jb2RpbmcgLz48Q29udGVudC1MYW5ndWFnZSAvPjxDb250ZW50LU1E
+        NT4vUkJyVVRuZnFhK3JMUWI3QUZ0L1hBPT08L0NvbnRlbnQtTUQ1PjxDYWNo
+        ZS1Db250cm9sIC8+PENvbnRlbnQtRGlzcG9zaXRpb24gLz48QmxvYlR5cGU+
+        QmxvY2tCbG9iPC9CbG9iVHlwZT48TGVhc2VTdGF0dXM+dW5sb2NrZWQ8L0xl
+        YXNlU3RhdHVzPjxMZWFzZVN0YXRlPmF2YWlsYWJsZTwvTGVhc2VTdGF0ZT48
+        L1Byb3BlcnRpZXM+PC9CbG9iPjxCbG9iPjxOYW1lPnRlc3Qtc3RhY2stc2Zu
+        LWFmYTdhMGQxLWVmOWMtNDhiYS1hZTE1LTI3MjEzNTRhNWZmMy5qc29uPC9O
+        YW1lPjxQcm9wZXJ0aWVzPjxMYXN0LU1vZGlmaWVkPldlZCwgMTMgSmFuIDIw
+        MTYgMjM6MjA6MDQgR01UPC9MYXN0LU1vZGlmaWVkPjxFdGFnPjB4OEQzMUM3
+        MDExN0I2NEQyPC9FdGFnPjxDb250ZW50LUxlbmd0aD4xNTAzPC9Db250ZW50
+        LUxlbmd0aD48Q29udGVudC1UeXBlPmFwcGxpY2F0aW9uL29jdGV0LXN0cmVh
+        bTwvQ29udGVudC1UeXBlPjxDb250ZW50LUVuY29kaW5nIC8+PENvbnRlbnQt
+        TGFuZ3VhZ2UgLz48Q29udGVudC1NRDU+OTJEYlc5STVzWTV3V1hTNUZ2SmRB
+        QT09PC9Db250ZW50LU1ENT48Q2FjaGUtQ29udHJvbCAvPjxDb250ZW50LURp
+        c3Bvc2l0aW9uIC8+PEJsb2JUeXBlPkJsb2NrQmxvYjwvQmxvYlR5cGU+PExl
+        YXNlU3RhdHVzPnVubG9ja2VkPC9MZWFzZVN0YXR1cz48TGVhc2VTdGF0ZT5h
+        dmFpbGFibGU8L0xlYXNlU3RhdGU+PC9Qcm9wZXJ0aWVzPjwvQmxvYj48Qmxv
+        Yj48TmFtZT50ZXN0LXN0YWNrLXNmbi1iMjRlNmRlNi0zNjI1LTRkMTctODUw
+        Yi1kNDAwMTlkZDIzNTQuanNvbjwvTmFtZT48UHJvcGVydGllcz48TGFzdC1N
+        b2RpZmllZD5XZWQsIDEzIEphbiAyMDE2IDIzOjE1OjUyIEdNVDwvTGFzdC1N
+        b2RpZmllZD48RXRhZz4weDhEMzFDNkY3QjQ0MDU0NDwvRXRhZz48Q29udGVu
+        dC1MZW5ndGg+MTUxNzwvQ29udGVudC1MZW5ndGg+PENvbnRlbnQtVHlwZT5h
+        cHBsaWNhdGlvbi9vY3RldC1zdHJlYW08L0NvbnRlbnQtVHlwZT48Q29udGVu
+        dC1FbmNvZGluZyAvPjxDb250ZW50LUxhbmd1YWdlIC8+PENvbnRlbnQtTUQ1
+        Pi9SQnJVVG5mcWErckxRYjdBRnQvWEE9PTwvQ29udGVudC1NRDU+PENhY2hl
+        LUNvbnRyb2wgLz48Q29udGVudC1EaXNwb3NpdGlvbiAvPjxCbG9iVHlwZT5C
+        bG9ja0Jsb2I8L0Jsb2JUeXBlPjxMZWFzZVN0YXR1cz51bmxvY2tlZDwvTGVh
+        c2VTdGF0dXM+PExlYXNlU3RhdGU+YXZhaWxhYmxlPC9MZWFzZVN0YXRlPjwv
+        UHJvcGVydGllcz48L0Jsb2I+PC9CbG9icz48TmV4dE1hcmtlciAvPjwvRW51
+        bWVyYXRpb25SZXN1bHRzPg==
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:47 GMT
+- request:
+    method: get
+    uri: https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      X-Ms-Date:
+      - Fri, 15 Jan 2016 21:43:47 GMT
+      X-Ms-Version:
+      - '2015-04-05'
+      Authorization:
+      - SharedKey MIASMA_AZURE_BLOB_ACCOUNT_NAME:OeYqS1EkYcwgzfUMz+OzBEJucXBooj0paPsbOF3iPwM=
+      Connection:
+      - close
+      Host:
+      - MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '689'
+      Content-Type:
+      - application/octet-stream
+      Content-Md5:
+      - 6++cukyW1R237OYLj0dhRg==
+      Last-Modified:
+      - Fri, 15 Jan 2016 21:43:00 GMT
+      Accept-Ranges:
+      - bytes
+      Etag:
+      - '"0x8D31DF4D6B19ECD"'
+      Server:
+      - Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+      X-Ms-Request-Id:
+      - 4397aefd-0001-00db-3fdd-4fc253000000
+      X-Ms-Version:
+      - '2015-04-05'
+      X-Ms-Lease-Status:
+      - unlocked
+      X-Ms-Lease-State:
+      - available
+      X-Ms-Blob-Type:
+      - BlockBlob
+      Date:
+      - Fri, 15 Jan 2016 21:43:47 GMT
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: '{"$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#","contentVersion":"1.0.0.0","parameters":{"location":{"type":"string","defaultValue":"MIASMA_AZURE_REGION"}},"variables":{"apiVersion":"2015-06-15"},"resources":[{"type":"Microsoft.Network/networkSecurityGroups","properties":{"securityRules":[{"name":"first_rule","properties":{"description":"First
+        Rule","protocol":"Tcp","sourcePortRange":"23-45","destinationPortRange":"46-56","sourceAddressPrefix":"*","destinationAddressPrefix":"*","access":"Allow","priority":123,"direction":"Inbound"}}]},"apiVersion":"[variables(''apiVersion'')]","location":"[parameters(''location'')]","name":"testNetworkSecurityGroups"}]}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:47 GMT
+recorded_with: VCR 3.0.1

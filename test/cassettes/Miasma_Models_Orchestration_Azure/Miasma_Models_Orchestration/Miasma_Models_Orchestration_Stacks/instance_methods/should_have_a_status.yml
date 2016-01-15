@@ -1,0 +1,199 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14971'
+      X-Ms-Request-Id:
+      - aef15144-7dbe-41c6-8870-88c71fa396fc
+      X-Ms-Correlation-Request-Id:
+      - aef15144-7dbe-41c6-8870-88c71fa396fc
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214348Z:aef15144-7dbe-41c6-8870-88c71fa396fc
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:47 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '424'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/DefaultTest","name":"DefaultTest","location":"MIASMA_AZURE_REGION","properties":{"provisioningState":"Succeeded"}},{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack","name":"miasma-test-stack","location":"MIASMA_AZURE_REGION","tags":{"created":"1452894181","state":"create"},"properties":{"provisioningState":"Succeeded"}}]}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:47 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack/providers/microsoft.resources/deployments/miasma-stack?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14970'
+      X-Ms-Request-Id:
+      - 73ec170f-96ae-465a-b867-3f42fd485238
+      X-Ms-Correlation-Request-Id:
+      - 73ec170f-96ae-465a-b867-3f42fd485238
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214348Z:73ec170f-96ae-465a-b867-3f42fd485238
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:48 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '987'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack/providers/Microsoft.Resources/deployments/miasma-stack","name":"miasma-stack","properties":{"templateLink":{"uri":"https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json?sr=b&sv=2015-04-05&se=2016-01-15T21%3A44%3A01Z&sp=r&sig=a1VLFQ%2BEF7VXVdC%2F%2FhRAWrJVh%2BSVJiV2KI5XuHIq5i8%3D","contentVersion":"1.0.0.0"},"parameters":{"location":{"type":"String","value":"MIASMA_AZURE_REGION"}},"mode":"Complete","provisioningState":"Succeeded","timestamp":"2016-01-15T21:43:26.8869715Z","duration":"PT24.2125297S","correlationId":"1114eb8b-c1ad-4c29-9706-f3ae57737300","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"networkSecurityGroups","locations":["MIASMA_AZURE_REGION"]}]}],"dependencies":[],"outputResources":[{"id":"Microsoft.Network/networkSecurityGroups/testNetworkSecurityGroups"}]}}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:48 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14972'
+      X-Ms-Request-Id:
+      - 191935ab-f550-47fc-9a04-797ae78ac794
+      X-Ms-Correlation-Request-Id:
+      - 191935ab-f550-47fc-9a04-797ae78ac794
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214348Z:191935ab-f550-47fc-9a04-797ae78ac794
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:47 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '424'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/DefaultTest","name":"DefaultTest","location":"MIASMA_AZURE_REGION","properties":{"provisioningState":"Succeeded"}},{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack","name":"miasma-test-stack","location":"MIASMA_AZURE_REGION","tags":{"created":"1452894181","state":"create"},"properties":{"provisioningState":"Succeeded"}}]}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:48 GMT
+- request:
+    method: get
+    uri: https://management.azure.com/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourcegroups/miasma-test-stack/providers/microsoft.resources/deployments/miasma-stack?api-version=2015-01-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - miasma/v0.2.37
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJpYXQiOjE0NTI4OTM4ODEsIm5iZiI6MTQ1Mjg5Mzg4MSwiZXhwIjoxNDUyODk3NzgxLCJhcHBpZCI6IjkxZDJhZGMwLWFiM2ItNDZhOS05NDczLTBkYTI1N2E5ZjhlMCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2MwZmY0OGUxLWMzNzUtNDE3Zi05NGZmLTk2ZjQyN2VhYWY5Yi8iLCJvaWQiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJzdWIiOiJmMzgzNjhjYi05NmVmLTQ1ODYtYjBlZi0wYzBhZmZiMTA0ODQiLCJ0aWQiOiJjMGZmNDhlMS1jMzc1LTQxN2YtOTRmZi05NmY0MjdlYWFmOWIiLCJ2ZXIiOiIxLjAifQ.DanBDk0ajfdxZlAm78zPzM8_xLUA26PYVemUah2u7s1sGCUHXDAr4iYp1GSpouhj1FdPxbejz0aXViOgT4ptvdCmwoy2y1IlC8nnzLS0CJBTbzfjjugQBmwjSNbLYHOkq6uI8MzzueEi-wrfyR3ZnQzegEsjVgxUUqIuF9jKV1GEru9qrNCQNIp-rYtr-YuQtY2fEKfMknfogXYX8b1YzT5MtP6TIwWW2BABNbk02ugqG0_5J54uyNs6Snp_rertwbrN7LnAAO8ViJMO36KrOAPCpTbengiw9Pk58pxYQ4AdPq7hcdlLdeO4ny31cWnbyK2NOYtbHhiis0ugmAp6oQ
+      Connection:
+      - close
+      Host:
+      - management.azure.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14968'
+      X-Ms-Request-Id:
+      - c256d9bc-27ed-4cfa-91a2-6e254ea31778
+      X-Ms-Correlation-Request-Id:
+      - c256d9bc-27ed-4cfa-91a2-6e254ea31778
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20160115T214348Z:c256d9bc-27ed-4cfa-91a2-6e254ea31778
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Fri, 15 Jan 2016 21:43:48 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '987'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/MIASMA_AZURE_SUBSCRIPTION_ID/resourceGroups/miasma-test-stack/providers/Microsoft.Resources/deployments/miasma-stack","name":"miasma-stack","properties":{"templateLink":{"uri":"https://MIASMA_AZURE_BLOB_ACCOUNT_NAME.blob.core.windows.net/miasma-orchestration-templates/miasma-test-stack-8bb380974a71d18b9bae766beef95f06fce930f3f979e19f9b256adccfba28ef.json?sr=b&sv=2015-04-05&se=2016-01-15T21%3A44%3A01Z&sp=r&sig=a1VLFQ%2BEF7VXVdC%2F%2FhRAWrJVh%2BSVJiV2KI5XuHIq5i8%3D","contentVersion":"1.0.0.0"},"parameters":{"location":{"type":"String","value":"MIASMA_AZURE_REGION"}},"mode":"Complete","provisioningState":"Succeeded","timestamp":"2016-01-15T21:43:26.8869715Z","duration":"PT24.2125297S","correlationId":"1114eb8b-c1ad-4c29-9706-f3ae57737300","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"networkSecurityGroups","locations":["MIASMA_AZURE_REGION"]}]}],"dependencies":[],"outputResources":[{"id":"Microsoft.Network/networkSecurityGroups/testNetworkSecurityGroups"}]}}'
+    http_version: 
+  recorded_at: Fri, 15 Jan 2016 21:43:48 GMT
+recorded_with: VCR 3.0.1
