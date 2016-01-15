@@ -8,6 +8,7 @@ module Miasma
 
         include Contrib::AzureApiCore::ApiCommon
 
+        # Resource status to state mapping
         STATUS_MAP = Smash.new(
           'Failed' => :create_failed,
           'Canceled' => :create_failed,
@@ -16,16 +17,26 @@ module Miasma
           'Deleted' => :delete_complete
         )
 
+        # @return [String] supported API versoin
         def api_version
           '2015-01-01'
         end
 
+        # Generate the URL path required for given stack
+        #
+        # @param stack [Models::Orchestration::Stack]
+        # @return [String] generated path
         def generate_path(stack=nil)
           path = "/subscriptions/#{azure_subscription_id}/resourcegroups"
           path << "/#{stack.name}/providers/microsoft.resources/deployments/miasma-stack" if stack
           path
         end
 
+        # Convert given status value to correct state value
+        #
+        # @param val [String] Resource status
+        # @param modifier [String, Symbol] optional state prefix modifier
+        # @return [Symbol] resource state
         def status_to_state(val, modifier=nil)
           val = STATUS_MAP.fetch(val, :create_in_progress)
           if(modifier && modifier.to_s != 'create' && val.to_s.start_with?('create'))
@@ -48,6 +59,10 @@ module Miasma
           end
         end
 
+        # Populate stack model data
+        #
+        # @param stack [Models::Orchestration::Stack]
+        # @return [Models::Orchestration::Stack]
         def fetch_single_stack(stack)
           unless(stack.custom[:base_load])
             n_stack = fetch_all_stacks.detect do |s|
@@ -108,6 +123,9 @@ module Miasma
           end
         end
 
+        # Fetch all available stacks
+        #
+        # @return [Array<Models::Orchestration::Stack>]
         def fetch_all_stacks
           result = request(
             :path => generate_path
@@ -184,6 +202,11 @@ module Miasma
           stack
         end
 
+        # Store the stack template in the object store for future
+        # reference
+        #
+        # @param stack [Models::Orchestration::Stack]
+        # @return [Models::Orchestration::Stack]
         def store_template!(stack)
           storage = api_for(:storage)
           bucket = storage.buckets.get(azure_root_orchestration_container)
