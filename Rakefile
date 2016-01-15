@@ -10,6 +10,6 @@ Rake::TestTask.new do |test|
 end
 
 task :default => [] do
-  Rake::Task[:rubocop].invoke
+#  Rake::Task[:rubocop].invoke
   Rake::Task[:test].invoke
 end
