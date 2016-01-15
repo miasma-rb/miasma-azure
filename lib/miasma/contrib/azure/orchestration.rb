@@ -17,7 +17,7 @@ module Miasma
           'Deleted' => :delete_complete
         )
 
-        # @return [String] supported API versoin
+        # @return [String] supported API version
         def api_version
           '2015-01-01'
         end
@@ -285,18 +285,24 @@ module Miasma
         def stack_template_validate(stack)
           begin
             result = request(
+              :path => [generate_path(stack), 'validate'].join('/'),
               :method => :post,
-              :path => '/',
-              :form => Smash.new(
-                'Action' => 'ValidateTemplate',
-                'TemplateBody' => MultiJson.dump(stack.template)
-              )
+              :json => {
+                :properties => {
+                  :template => stack.template,
+                  :parameters => stack.parameters,
+                  :mode => 'Complete'
+                }
+              }
             )
             nil
           rescue Error::ApiError::RequestError => e
-            MultiXml.parse(e.response.body.to_s).to_smash.get(
-              'ErrorResponse', 'Error', 'Message'
-            )
+            begin
+              error = MultiJson.load(e.response.body.to_s).to_smash
+              "#{error.get(:error, :code)} - #{error.get(:error, :message)}"
+            rescue
+              "Failed to extract error information! - #{e.response.body.to_s}"
+            end
           end
         end
 
