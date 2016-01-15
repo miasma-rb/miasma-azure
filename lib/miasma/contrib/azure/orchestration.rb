@@ -71,14 +71,19 @@ module Miasma
             end
             if(n_stack)
               stack.data.deep_merge!(n_stack.attributes)
+            else
+              stack.state = :delete_complete
+              stack.status = 'Deleted'
+              return stack
             end
           end
+          stack.custom.delete(:base_load)
           result = request(
             :path => generate_path(stack),
             :expects => [200, 404]
           )
           if(result[:response].code == 404)
-            if(state = stack.tags[:state])
+            if(stack.tags && state = stack.tags[:state])
               case state
               when 'create'
                 stack.status = 'Creating'
@@ -103,7 +108,7 @@ module Miasma
               :id => stack_id,
               :name => stack_name,
               :parameters => Smash[
-                item.fetch(:parameters, {}).map do |p_name, p_value|
+                item.fetch(:properties, :parameters, {}).map do |p_name, p_value|
                   [p_name, p_value[:value]]
                 end
               ],
@@ -228,6 +233,22 @@ module Miasma
           stack
         end
 
+        # Delete the stack template persisted in the object store
+        #
+        # @param stack [Models::Orchestration::Stack]
+        # @return [TrueClass, NilClass]
+        def delete_template!(stack)
+          storage = api_for(:storage)
+          bucket = storage.buckets.get(azure_root_orchestration_container)
+          if(bucket)
+            t_file = bucket.files.get("#{stack.name}-#{attributes.checksum}.json")
+            if(t_file)
+              t_file.destroy
+              true
+            end
+          end
+        end
+
         # Reload the stack data from the API
         #
         # @param stack [Models::Orchestration::Stack]
@@ -245,6 +266,17 @@ module Miasma
         # @return [TrueClass, FalseClass]
         def stack_destroy(stack)
           if(stack.persisted?)
+            request(
+              :path => [generate_path, stack.name].join('/'),
+              :method => :patch,
+              :json => {
+                :tags => stack.tags.merge(
+                  :updated => Time.now.to_i,
+                  :state => 'delete'
+                )
+              }
+            )
+            delete_template!(stack)
             request(
               :method => :delete,
               :expects => [202, 204],
