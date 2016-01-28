@@ -421,7 +421,7 @@ module Miasma
           # just return nothing. This should be replaced with customized
           # events: poll resource group resources and generate event items
           # as resources are deleted
-          if(stack.state == :delete_in_progress)
+          if(stack.state.to_s.start_with?('delete'))
             []
           else
             result = request(
