@@ -416,28 +416,37 @@ module Miasma
         # @param stack [Models::Orchestration::Stack]
         # @return [Array<Models::Orchestration::Stack::Event>]
         def event_all(stack, evt_id=nil)
-          result = request(
-            :path => [generate_path(stack), 'operations'].join('/')
-          )
-          events = result.get(:body, :value).map do |event|
-            Stack::Event.new(
-              stack,
-              :id => event[:operationId],
-              :resource_id => event.get(:properties, :targetResource, :id),
-              :resource_name => event.get(:properties, :targetResource, :resourceName),
-              :resource_logical_id => event.get(:properties, :targetResource, :resourceName),
-              :resource_state => status_to_state(event.get(:properties, :provisioningState)),
-              :resource_status => event.get(:properties, :provisioningState),
-              :resource_status_reason => event.get(:properties, :statusCode),
-              :time => Time.parse(event.get(:properties, :timestamp))
-            ).valid_state
-          end
-          if(evt_id)
-            idx = events.index{|d| e.id == evt_id}
-            idx = idx ? idx + 1 : 0
-            events.slice(idx, events.size)
+          # TODO and NOTE
+          # Operations can't be viewed when deletion is progress. For now
+          # just return nothing. This should be replaced with customized
+          # events: poll resource group resources and generate event items
+          # as resources are deleted
+          if(stack.state == :delete_in_progress)
+            []
           else
-            events
+            result = request(
+              :path => [generate_path(stack), 'operations'].join('/')
+            )
+            events = result.get(:body, :value).map do |event|
+              Stack::Event.new(
+                stack,
+                :id => event[:operationId],
+                :resource_id => event.get(:properties, :targetResource, :id),
+                :resource_name => event.get(:properties, :targetResource, :resourceName),
+                :resource_logical_id => event.get(:properties, :targetResource, :resourceName),
+                :resource_state => status_to_state(event.get(:properties, :provisioningState)),
+                :resource_status => event.get(:properties, :provisioningState),
+                :resource_status_reason => event.get(:properties, :statusCode),
+                :time => Time.parse(event.get(:properties, :timestamp))
+              ).valid_state
+            end
+            if(evt_id)
+              idx = events.index{|d| e.id == evt_id}
+              idx = idx ? idx + 1 : 0
+              events.slice(idx, events.size)
+            else
+              events
+            end
           end
         end
 
