@@ -112,8 +112,11 @@ module Miasma
                   [p_name, p_value[:value]]
                 end
               ],
-              :outputs => item.fetch(:outputs, {}).map{ |o_name, o_value|
-                Smash.new(:key => o_name, :value => o_value[:value])
+              :outputs => item.fetch(:properties, :outputs, {}).map{ |o_name, o_value|
+                Stack::Output.new(stack,
+                  :key => o_name,
+                  :value => o_value[:value]
+                )
               },
               :template_url => item.get(:properties, :templateLink, :uri),
               :state => status_to_state(
