@@ -436,7 +436,7 @@ module Miasma
                 :resource_logical_id => event.get(:properties, :targetResource, :resourceName),
                 :resource_state => status_to_state(event.get(:properties, :provisioningState)),
                 :resource_status => event.get(:properties, :provisioningState),
-                :resource_status_reason => event.get(:properties, :statusCode),
+                :resource_status_reason => event.get(:properties, :statusCode).to_s,
                 :time => Time.parse(event.get(:properties, :timestamp))
               ).valid_state
             end
