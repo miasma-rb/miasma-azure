@@ -317,7 +317,7 @@ module Miasma
 
         def request_client_token
           result = HTTP.post(
-            File.join(azure_login_url, azure_tenant_id, 'oauth2', 'token'),
+            [azure_login_url, azure_tenant_id, 'oauth2', 'token'].join('/'),
             :form => {
               :grant_type => 'client_credentials',
               :client_id => azure_client_id,
@@ -326,11 +326,10 @@ module Miasma
             }
           )
           unless(result.code == 200)
-            # TODO: Wrap this in custom exception to play nice
-            puts result.inspect
-            puts "FAIL: #{result.body.to_s}"
-            puts result.headers
-            raise 'ACK'
+            raise Miasma::Error::ApiError.new(
+              'Request for client authentication token failed',
+              :response => result
+            )
           end
           @oauth_token_information = MultiJson.load(
             result.body.to_s
