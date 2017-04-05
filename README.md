@@ -19,25 +19,27 @@ Azure API plugin for the miasma cloud library
 
 
 
-<br/>
-## Configuration via Microsoft Azure New ARM Portal
 
-Below you will find the steps to configure a Account Active Directory and Subscriptions via the New Azure Resource Manager (ARM) Portal so they can be accessed and managed with this miasma based cloud library. Credentials for the Azure Resource Manager require some setup within Azure due to OAuth2 requirements. To setup an OAuth2 application and storage configuration allowing miasma to function properly, perform the following steps listed below using the Azure portal hosted on the following URL: [**https://portal.azure.com**](https://portal.azure.com)
+## Configuration via Microsoft Azure portal
+
+Below you will find the steps to configure a Account Active Directory and Subscriptions via the New Azure Resource Manager (ARM) Portal so they can be accessed and managed with this miasma based cloud library. 
+
+Credentials for the Azure Resource Manager require some setup within Azure due to OAuth2 requirements. To setup an OAuth2 application and storage configuration allowing miasma to function properly, perform the following steps listed below using the Azure portal hosted on the following URL: [**https://portal.azure.com**](https://portal.azure.com)
 
 **IMPORTANT** - *Your user account will need to Azure Active Directory domain adminstrator and have `owner` role within the subscriptions which you wish to deploy Infrastructure with using this libary.*
 
 
-###1. Setting the Azure Blob storage account
+### 1. Setting the Azure Blob storage account
 You will also need to setup a Azure Blob storage account to hold the ARM template & other configuration files. The easiest way to create an Azure storage account is by using the Azure portal for detailed instructions, see [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account). You can also create an Azure storage account by using the latest [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
 
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. Your need to set the environment variable `AZURE_BLOB_SECRET_KEY` to use one of the storage access keys and in additon your need to set the environment variable `AZURE_BLOB_ACCOUNT_NAME` to the name you gave your Azure Blob storage account.
 
 
-###2. Setting the Azure Region for your deployments
+### 2. Setting the Azure region for your deployments
 The `AZURE_REGION` environment variable is simply the Azure region (`westus`, `eastus`, etc.) where you want to deploy your infrastructure within the Microsoft Azure Cloud platform. The list of regions can be viewed via the [Azure CLI](https://https://github.com/Azure/azure-cli). Once you have signed in to the CLI tool you can get the list of current Azure regions by running the following command ```az account list-locations```. You will need to use the ```name``` property for the specific region you wish to use.
 
 
-###3. Getting the Azure Active Directory ID
+### 3. Getting the Azure Active Directory ID
 1. Start at the Azure portal dashboard
 2. Click `Browse` to open available service list
 4. Click `Azure Active Directory` to open AD service
@@ -46,7 +48,7 @@ The `AZURE_REGION` environment variable is simply the Azure region (`westus`, `e
 6. Set the `AZURE_TENANT_ID ` environment variable to use the copied value
 
 
-###4. Getting the Azure Subscription ID
+### 4. Getting the Azure Subscription ID
 1. Start at the Azure portal dashboard
 1. Click `Browse` to open available service list
 2. Click `Subscriptions ` to open the subscriptions management blade
@@ -55,7 +57,7 @@ The `AZURE_REGION` environment variable is simply the Azure region (`westus`, `e
 6. Set the `AZURE_SUBSCRIPTION_ID ` environment variable to use the copied value
 
 
-###5. Creating an Azure Active Directory OAuth2 application
+### 5. Creating an Azure Active Directory OAuth2 application
 1. Start at the Azure portal dashboard
 2. . Click `Browse` to open available service list
 3. Click `Azure Active Directory` to open AD service
@@ -71,7 +73,7 @@ The `AZURE_REGION` environment variable is simply the Azure region (`westus`, `e
 13. Copy the `Application ID` value 
 14. Set the `AZURE_CLIENT_ID ` environment variable to use the copied value
 
-###6. Setting OAuth2 application required permissions
+### 6. Setting OAuth2 application required permissions
 1. Start at the Azure portal dashboard
 2. Click `Browse` to open available service list
 3. Click `Azure Active Directory` to open AD service
@@ -87,7 +89,7 @@ The `AZURE_REGION` environment variable is simply the Azure region (`westus`, `e
 13. Click `Select` at the the bottom of the blade
 14. Click `Done` to finish adding the permission
 
-###7. Creating a client secret key for the OAuth2 application
+### 7. Creating a client secret key for the OAuth2 application
 1. Start at the Azure portal dashboard
 2. Click `Browse` to open available service list
 3. Click `Azure Active Directory` to open AD service
@@ -100,7 +102,7 @@ The `AZURE_REGION` environment variable is simply the Azure region (`westus`, `e
 10. Copy the key value as it only visible until you leave this blade.
 11. Set the `AZURE_CLIENT_SECRET` environment variable to use the copied value
 
-###8. Granting Azure Subscription role to the OAuth2 application
+### 8. Granting Azure Subscription role to the OAuth2 application
 1. Start at the Azure portal dashboard
 2. Click `Browse` to open available service list
 2. Click `Subscriptions ` to open the subscriptions management blade
@@ -112,8 +114,7 @@ The `AZURE_REGION` environment variable is simply the Azure region (`westus`, `e
 9. The changes will now be saved
 
 
-<br/>
-## SparkleFormation Configuration Example
+## SparkleFormation CLI configuration example
 Below is an example of SparkleFormation CLI ```.sfn``` file credentials tailed to use this cloud libary. The ```azure_root_orchestration_container``` property defaults to "*miasma-orchestration-templates*" if not configured.
 
 ```ruby
