@@ -2,7 +2,7 @@
 
 Azure API plugin for the miasma cloud library
 
-
+<br/><br/>
 ## Current support matrix
 
 |Model         |Create|Read|Update|Delete|
@@ -19,7 +19,7 @@ Azure API plugin for the miasma cloud library
 
 
 
-
+<br/><br/>
 ## Configuration via Microsoft Azure portal
 
 Below you will find the steps to configure a Account Active Directory and Subscriptions via the New Azure Resource Manager (ARM) Portal so they can be accessed and managed with this miasma based cloud library. 
@@ -113,7 +113,7 @@ The `AZURE_REGION` environment variable is simply the Azure region (`westus`, `e
 8. Click `OK` in the Add Access panel. 
 9. The changes will now be saved
 
-
+<br/><br/>
 ## SparkleFormation CLI configuration example
 Below is an example of SparkleFormation CLI ```.sfn``` file credentials tailed to use this cloud libary. The ```azure_root_orchestration_container``` property defaults to "*miasma-orchestration-templates*" if not configured.
 
